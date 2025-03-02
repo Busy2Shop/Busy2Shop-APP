@@ -15,10 +15,6 @@ const OTPPage: React.FC<AuthenticationProps> = ({ href }) => {
     router.push(href);
   };
 
-  useEffect(() => {
-    console.log(otp);
-  }, [otp]);
-
   return (
     <SafeAreaView className="bg-[#F7F7F7] h-full text-primaryText">
       <ScrollView>

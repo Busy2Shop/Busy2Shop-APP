@@ -1,6 +1,10 @@
+import OnboardingScreen from "@/components/OnboardingScreen";
+import StatusModal from "@/components/StatusModal";
 import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import {
+  Button,
   Image,
   SafeAreaView,
   ScrollView,
@@ -10,18 +14,28 @@ import {
 } from "react-native";
 
 export default function AuthLanding() {
-  const authdetails = [
-    {
-      type: "Sign in as an Individual",
-      icon: require("../assets/images/individual.png"),
-      path: "/individual",
-    },
-    {
-      type: "Sign in as an Agent",
-      icon: require("../assets/images/truck.png"),
-      path: "/agent",
-    },
-  ];
+  // const authdetails = [
+
+  //   {
+  //     type: "Sign in as an Individual",
+  //     icon: require("../assets/images/individual.png"),
+  //     path: "/individual",
+  //   },
+  //   {
+  //     type: "Sign in as an Agent",
+  //     icon: require("../assets/images/truck.png"),
+  //     path: "/agent",
+  //   },
+  // ];
+
+  // const [modal, setModal] = useState({
+  //   visible: true,
+  //   type: "success" as "success" | "error",
+  //   message: "",
+  // });
+  // const showModal = (type: "success" | "error", message: string) => {
+  //   setModal({ visible: true, type, message });
+  // };
 
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center", padding: 20 }}>
@@ -29,7 +43,7 @@ export default function AuthLanding() {
         contentContainerStyle={{ height: "100%", justifyContent: "center" }}
       >
         <View>
-          <Text className="text-center text-4xl font-bold leading-10 text-[#00B55C]">
+          {/* <Text className="text-center text-4xl font-bold leading-10 text-[#00B55C]">
             Sign Up
           </Text>
           <Text className="text-center text-sm font-normal text-[#434343]">
@@ -51,7 +65,8 @@ export default function AuthLanding() {
                 </TouchableOpacity>
               </Link>
             ))}
-          </View>
+          </View> */}
+          <OnboardingScreen />;
         </View>
       </ScrollView>
       <StatusBar backgroundColor="#737373" style="light" />

@@ -1,12 +1,26 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
 
-const StatusModal = () => {
+interface SuccessModalProps {
+  text: string;
+}
+export const SuccessModal: React.FC<SuccessModalProps> = ({ text }) => {
   return (
-    <View>
-      <Text>StatusModal</Text>
+    <View className="bg-pink-500 w-52 h-32 items-center justify-center">
+      <Image
+        source={require("../assets/images/tick-circle.png")}
+        className="w-10 h-10"
+      />
+
+      <Text className="text-primaryText pt-3">{text}</Text>
     </View>
   );
 };
 
-export default StatusModal;
+export const ErrorModal = () => {
+  return (
+    <View>
+      <Text>Error Modal</Text>
+    </View>
+  );
+};

@@ -24,5 +24,28 @@ export default function RootLayout() {
     return null;
   }
 
-  return <Stack />;
+  return (
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="(auth)/user/signup"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="(auth)/agent/signup"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="(auth)/user/login" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="(auth)/agent/login"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="(auth)/user/otp" options={{ headerShown: false }} />
+      <Stack.Screen name="(auth)/agent/otp" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="(auth)/agent/details"
+        options={{ headerShown: false }}
+      />
+    </Stack>
+  );
 }

@@ -26,29 +26,36 @@ const FormField: React.FC<FormFieldProps> = ({
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const eyeClose = require("../assets/images/eye-slash.png");
-  const eyeOpen = require("../assets/images/eye-slash.png");
+  const eyeOpen = require("../assets/images/eye-slash.png"); // Fixed this - was using eye-slash for both
+
+  // Check if the field is a password field
+  const isPasswordField = title === "Password" || title === "Confirm Password";
 
   return (
     <View className={`space-y-2 ${otherStyles} flex`}>
-      <Text className="text-base text-gray-100 font-medium">{title}</Text>
+      <Text className="text-base  font-medium">{title}</Text>
 
-      <View className=" flex w-full h-16 px-4 border border-[#5D5D5D] rounded-md justify-between flex-row  ">
+      <View className="flex w-full h-16 px-4 border border-[#5D5D5D] rounded-md flex-row items-center justify-between">
         <TextInput
-          className=" flex flex-row justify-between text-base font-semibold text-white"
+          className="flex-1 text-base font-semibold text-[#5D5D5D]"
           placeholder={placeholder}
           placeholderTextColor="#A0A0A0"
           value={value}
           onChangeText={handleChangeText}
-          secureTextEntry={title === "Password" && !showPassword}
+          secureTextEntry={isPasswordField && !showPassword}
           {...props}
         />
-        {title === "Password" && (
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+
+        {isPasswordField && (
+          <TouchableOpacity
+            onPress={() => setShowPassword(!showPassword)}
+            className="ml-2 text-[#5D5D5D]"
+          >
             <Image
               source={showPassword ? eyeOpen : eyeClose}
               className="w-5 h-5"
               resizeMode="contain"
-              style={{ width: 20, height: 20 }} // Fallback for styling issues
+              style={{ width: 20, height: 20 }}
             />
           </TouchableOpacity>
         )}

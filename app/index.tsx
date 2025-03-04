@@ -1,6 +1,9 @@
+import OnboardingScreen from "@/components/OnboardingScreen";
 import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import {
+  Button,
   Image,
   SafeAreaView,
   ScrollView,
@@ -8,6 +11,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { ErrorModal, SuccessModal } from "../components/StatusModal";
 
 export default function AuthLanding() {
   const authdetails = [
@@ -21,6 +25,11 @@ export default function AuthLanding() {
       icon: require("../assets/images/truck.png"),
       path: "/agent/signup",
     },
+    {
+      type: "Details as an Agent",
+      icon: require("../assets/images/truck.png"),
+      path: "/agent/details",
+    },
   ];
 
   return (
@@ -29,7 +38,7 @@ export default function AuthLanding() {
         contentContainerStyle={{ height: "100%", justifyContent: "center" }}
       >
         <View>
-          <Text className="text-center text-4xl font-bold leading-10 text-primaryText ">
+          <Text className="text-center text-4xl font-bold leading-10 text-[#00B55C]">
             Sign Up
           </Text>
           <Text className="text-center text-sm font-normal text-[#434343]">
@@ -38,11 +47,7 @@ export default function AuthLanding() {
 
           <View className="mt-10 w-[323px]">
             {authdetails.map((auth, index) => (
-              <Link
-                href={auth.path as "/user/signup" | "/agent/signup"}
-                key={index}
-                asChild
-              >
+              <Link href={auth.path as any} key={index} asChild>
                 <TouchableOpacity className="mx-[10px] mb-6 flex flex-col items-center justify-center rounded-md border border-[#5D5D5D] p-6 text-primaryText">
                   <Image
                     source={auth.icon}

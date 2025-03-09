@@ -14,3 +14,14 @@ export interface SignupProps extends AuthenticationProps {
 export interface DetailsProps {
   href: "/agent/details";
 }
+
+export interface SidebarLinkProps {
+  href?: string;
+  label?: string;
+  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  isActive?: boolean;
+  iconSize?: string;
+  textSize?: string;
+  isLogout?: boolean;
+  onLogout?: () => void;
+}

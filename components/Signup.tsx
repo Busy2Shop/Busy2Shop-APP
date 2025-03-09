@@ -4,6 +4,7 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  Image,
 } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -12,6 +13,8 @@ import EmailIcon from "@/assets/icons/sms.svg";
 import VisibilityToggleIcon from "@/components/VisibilityToggle";
 import { SignupProps } from "@/types/interfaces";
 import { Link, router } from "expo-router";
+import Button from "./Button";
+import tw from "twrnc";
 
 const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
   const [email, setEmail] = useState<string>("");
@@ -36,52 +39,58 @@ const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
     router.push(otpRoute);
   };
 
+  console.log(isEmailFocused);
+
   return (
-    <SafeAreaView className="bg-[#F7F7F7] h-full text-primaryText">
+    <SafeAreaView style={tw`bg-[#F7F7F7] h-full text-primaryText`}>
       <ScrollView>
-        <View className="w-full justify-center h-full px-5 my-6">
-          <Text className="text-center text-4xl  text-primaryText font-bold leading-10 ">
+        <View style={tw`w-full justify-center h-full px-5 my-6`}>
+          <Text
+            style={tw`text-center text-4xl  text-primaryText font-bold leading-10`}
+          >
             Sign Up
           </Text>
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Email
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${
-                isEmailFocused ? "border-primaryText" : "border-gray-300"
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isEmailFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base border-0 focus:outline-none`}
                 placeholder="Email"
                 value={email}
                 onChangeText={setEmail}
                 onFocus={() => setIsEmailFocused(true)}
                 onBlur={() => setIsEmailFocused(false)}
+                selectionColor="transparent"
               />
               <EmailIcon />
             </View>
           </View>
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Password
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${
-                isPassowrdFocused ? "border-primaryText" : "border-gray-300"
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isPassowrdFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base border-0 focus:outline-none`}
                 placeholder="Password"
                 secureTextEntry={!passwordVisible}
                 value={password}
                 onChangeText={setPassword}
                 onFocus={() => setIsPassowrdFocused(true)}
                 onBlur={() => setIsPassowrdFocused(false)}
+                selectionColor="transparent"
               />
               <VisibilityToggleIcon
                 visible={passwordVisible}
@@ -90,25 +99,26 @@ const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
             </View>
           </View>
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Confirm Password
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${
+              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
                 isConfirmPasswordFocused
-                  ? "border-primaryText"
+                  ? "border-[#00A082]"
                   : "border-gray-300"
               }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base border-0 focus:outline-none`}
                 placeholder="Confirm Password"
                 secureTextEntry={!confirmPasswordVisible}
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
                 onFocus={() => setIsConfirmPasswordFocused(true)}
                 onBlur={() => setIsConfirmPasswordFocused(false)}
+                selectionColor="transparent"
               />
               <VisibilityToggleIcon
                 visible={confirmPasswordVisible}
@@ -117,36 +127,36 @@ const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
             </View>
           </View>
 
-          <View className="mt-[208px] mx-3">
-            <TouchableOpacity
-              className="bg-primaryText p-3 rounded-lg mt-7 flex-row justify-center items-center"
-              onPress={handleSignUp}
-            >
-              <Text className="text-white text-center font-medium ">
-                Sign Up
-              </Text>
-            </TouchableOpacity>
+          <View style={tw`mt-[208px] mx-3`}>
+            <Button fullWidth={true} onPress={handleSignUp}>
+              Sign Up
+            </Button>
 
-            <Text className="text-center text-[#696969] mt-1 text-sm">
+            <Text style={tw`text-center text-[#696969] mt-1 text-sm`}>
               Already have an account?{" "}
               <Link href={href} asChild>
-                <Text className="text-[#FF9400]">Login</Text>
+                <Text style={tw`text-[#FF9400]`}>Login</Text>
               </Link>
             </Text>
 
-            <View className="flex-row items-center my-8">
-              <View className="flex-1 h-px bg-[#777777]" />
+            <View style={tw`flex-row items-center my-8`}>
+              <View style={tw`flex-1 h-px bg-[#777777]`} />
 
-              <Text className="mx-4 text-center text-[#5D5D5D] font-normal">
+              <Text style={tw`mx-4 text-center text-[#5D5D5D] font-normal`}>
                 OR CONTINUE WITH
               </Text>
 
-              <View className="flex-1 h-px bg-[#777777]" />
+              <View style={tw`flex-1 h-px bg-[#777777] `} />
             </View>
 
-            <TouchableOpacity className="mt-4 p-3 border border-[#5D5D5D] rounded-lg flex-row justify-center items-center">
-              <GoogleIcon />
-              <Text className="ml-2 text-gray-700 font-medium">Google</Text>
+            <TouchableOpacity
+              style={tw`mt-4 p-3 flex flex-row items-center justify-center border border-[0.5px] border-[#5D5D5D] rounded-lg h-10`}
+            >
+              <Image
+                source={require("../assets/images/google.png")}
+                style={{ width: 24, height: 24 }}
+              />
+              <Text style={tw`ml-2 text-gray-700 font-medium`}>Google</Text>
             </TouchableOpacity>
           </View>
         </View>

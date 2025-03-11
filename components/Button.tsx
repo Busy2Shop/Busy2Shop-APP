@@ -8,8 +8,10 @@ interface ButtonProps {
   fullWidth?: boolean;
   loading?: boolean;
   disabled?: boolean;
-  fontWeight?: "normal" | "bold";
+  fontWeight?: "normal" | "bold" | "medium";
   textColor?: string;
+  bgColor?: string;
+  width?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,14 +22,16 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   fontWeight = "bold",
   textColor = "white",
+  bgColor = "bg-[#00A082]",
+  width = "w-[170px]",
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       disabled={disabled || loading}
       style={tw`h-[40px] rounded-lg flex flex-row items-center justify-center px-4 ${
-        fullWidth ? "w-full" : "w-[170px]"
-      } ${disabled ? "bg-gray-400 opacity-50" : "bg-teal-500"}`}
+        fullWidth ? "w-full" : width
+      } ${disabled ? "bg-gray-400 opacity-50" : bgColor}`}
     >
       {loading ? (
         <View style={tw`flex flex-row items-center gap-2`}>

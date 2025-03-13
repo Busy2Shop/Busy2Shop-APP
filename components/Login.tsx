@@ -88,14 +88,8 @@ const LoginPage: React.FC<AuthenticationProps> = ({ href }) => {
           </View>
 
           <View style={tw`mt-[208px] mx-3`}>
-            {/* <TouchableOpacity
-              style={tw`bg-primaryText p-3 rounded-lg mt-7 flex-row justify-center items-center`}
-              onPress={handleLogin}
-            >
-              <Text style={tw`text-white text-center font-medium `}>Login</Text>
-            </TouchableOpacity> */}
             <Button fullWidth={true} onPress={handleLogin}>
-              Sign Up
+              Login With Biometrics
             </Button>
 
             <Text style={tw`text-center text-[#696969] mt-1 text-sm`}>

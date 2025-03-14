@@ -53,7 +53,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
     setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => { };
 
   return (
     <SafeAreaView className="bg-[#F7F7F7] h-full text-primaryText">
@@ -72,9 +72,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               First Name
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${
-                isFirstNameFocused ? "border-primaryText" : "border-gray-300"
-              } `}
+              className={`flex-row items-center border rounded-lg px-3 bg-white ${isFirstNameFocused ? "border-primaryText" : "border-gray-300"
+                } `}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -91,9 +90,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               Last Name
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${
-                isLastNameFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3 bg-white ${isLastNameFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -110,9 +108,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               Phone Number
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${
-                isPhoneNumberFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3 bg-white ${isPhoneNumberFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -129,9 +126,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               Email
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${
-                isEmailFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3 bg-white ${isEmailFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -150,9 +146,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               Password
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${
-                isPassowrdFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3 bg-white ${isPassowrdFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -175,9 +170,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               State
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${
-                isStateFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3  bg-white ${isStateFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -195,9 +189,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               Address
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${
-                isAddressFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3  bg-white ${isAddressFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -214,9 +207,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               NIN
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${
-                isNINFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3  bg-white ${isNINFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -236,9 +228,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               Market
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${
-                isMarketFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3  bg-white ${isMarketFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -257,9 +248,8 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               Referrals Name
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${
-                isReferralFocused ? "border-primaryText" : "border-gray-300"
-              }`}
+              className={`flex-row items-center border rounded-lg px-3  bg-white ${isReferralFocused ? "border-primaryText" : "border-gray-300"
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"
@@ -277,11 +267,10 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               Referrals Phone Number
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${
-                isReferralPhoneNumberFocused
+              className={`flex-row items-center border rounded-lg px-3  bg-white ${isReferralPhoneNumberFocused
                   ? "border-primaryText"
                   : "border-gray-300"
-              }`}
+                }`}
             >
               <TextInput
                 className="flex-1 py-3 px-3 text-base"

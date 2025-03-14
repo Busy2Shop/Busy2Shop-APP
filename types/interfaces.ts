@@ -25,3 +25,20 @@ export interface SidebarLinkProps {
   isLogout?: boolean;
   onLogout?: () => void;
 }
+
+export interface ShoppingItem {
+  name: string;
+  quantity: number;
+  unit: string;
+  checked?: boolean; 
+};
+
+export interface Order {
+  orderNo: string;
+  phoneNumber: string;
+  superMarket: string;
+  deliveryLocation: string;
+  shoppingList: ShoppingItem[];
+  additionalNotes: string;
+  budget: number;
+};

@@ -12,6 +12,7 @@ interface ButtonProps {
   textColor?: string;
   bgColor?: string;
   width?: string;
+  borderStyling?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -24,14 +25,14 @@ const Button: React.FC<ButtonProps> = ({
   textColor = "white",
   bgColor = "bg-[#00A082]",
   width = "w-[170px]",
+  borderStyling = "",
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       disabled={disabled || loading}
-      style={tw`h-[40px] rounded-lg flex flex-row items-center justify-center px-4 ${
-        fullWidth ? "w-full" : width
-      } ${disabled ? "bg-gray-400 opacity-50" : bgColor}`}
+      style={tw`h-[40px] rounded-lg flex flex-row items-center justify-center px-4 ${fullWidth ? "w-full" : width
+        } ${disabled ? "bg-gray-400 opacity-50" : bgColor} ${borderStyling}`}
     >
       {loading ? (
         <View style={tw`flex flex-row items-center gap-2`}>

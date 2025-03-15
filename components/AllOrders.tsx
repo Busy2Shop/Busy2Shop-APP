@@ -16,14 +16,10 @@ const AllOrders: React.FC<AllOrdersProps> = ({ setPage }) => {
   return (
     <View style={tw`flex-1 flex-col gap-4 bg-[#F7F7F7] max-w-[375px]`}>
       <View style={tw`flex flex-row gap-1 mx-auto`}>
-        <TouchableOpacity
-          style={tw`h-10 w-[170px] flex items-center justify-center rounded-lg border border-[#00A082]`}
-        >
-          <Text style={tw`text-[#00A082] font-medium text-center`}>
-            Refresh
-          </Text>
-        </TouchableOpacity>
+
+        <Button fontWeight="medium" textColor="[#00A082]" bgColor="bg-transparent" borderStyling="border border-[#00A082]">Refresh</Button>
         <Button fontWeight="medium">Go Offline</Button>
+
       </View>
 
       <View style={tw`flex-1 flex-col gap-2`}>

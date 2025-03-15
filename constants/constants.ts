@@ -1,11 +1,13 @@
-export const AvailableOrder = [
+import { Order } from "@/types/interfaces";
+
+export const AvailableOrder: Order[] = [
   {
     orderNo: "12345", // Order number
     phoneNumber: "08123456789", // Customer's phone number
     superMarket: "Shoprite Mall", // Supermarket
     deliveryLocation: "12, Adeola Odeku St, Victoria Island, Lagos", // Delivery location
     shoppingList: [
-      { name: "Rice", quantity: 2, unit: "kg" },
+      { name: "Rice", quantity: 2, unit: "kg"},
       { name: "Beans", quantity: 1, unit: "bag" },
       { name: "Vegetable Oil", quantity: 2, unit: "litres" },
     ], // Shopping list

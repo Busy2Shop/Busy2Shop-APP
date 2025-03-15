@@ -27,14 +27,14 @@ const LoginPage: React.FC<AuthenticationProps> = ({ href }) => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const handleLogin = () => {};
+  const handleLogin = () => { };
 
   return (
-    <SafeAreaView style={tw`bg-[#F7F7F7] h-full text-primaryText`}>
+    <SafeAreaView style={tw`bg-[#F7F7F7] h-full text-[[#00A082]`}>
       <ScrollView>
         <View style={tw`w-full justify-center h-full px-5 my-6`}>
           <Text
-            style={tw`text-center text-4xl  text-primaryText font-bold leading-10 `}
+            style={tw`text-center text-4xl  text-[[#00A082] font-bold leading-10 `}
           >
             Login
           </Text>
@@ -44,9 +44,8 @@ const LoginPage: React.FC<AuthenticationProps> = ({ href }) => {
               Email
             </Text>
             <View
-              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
-                isEmailFocused ? "border-[#00A082]" : "border-gray-300"
-              }`}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${isEmailFocused ? "border-[#00A082]" : "border-gray-300"
+                }`}
             >
               <TextInput
                 style={tw`flex-1 py-3 px-3 text-base border-0 focus:outline-none`}
@@ -66,9 +65,8 @@ const LoginPage: React.FC<AuthenticationProps> = ({ href }) => {
               Password
             </Text>
             <View
-              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
-                isPassowrdFocused ? "border-[#00A082]" : "border-gray-300"
-              }`}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${isPassowrdFocused ? "border-[#00A082]" : "border-gray-300"
+                }`}
             >
               <TextInput
                 style={tw`flex-1 py-3 px-3 text-base border-0 focus:outline-none`}

@@ -28,7 +28,7 @@ export default function AuthLanding() {
     {
       type: "Details as an Agent",
       icon: require("../assets/images/truck.png"),
-      path: "/agent/details",
+      path: "/home/dashboard/page",
     },
   ];
 

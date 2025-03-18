@@ -9,6 +9,8 @@ import AllOrders from "@/components/AllOrders";
 import tw from "twrnc";
 import SingleOrder from "@/components/SingleOrder";
 
+import { useRouter } from "expo-router";
+
 export default function DashboardLayout({
   children,
 }: {
@@ -16,6 +18,7 @@ export default function DashboardLayout({
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [page, setPage] = useState<number>(0);
+  const router = useRouter();
   const navigation = useNavigation();
 
   return (
@@ -26,23 +29,29 @@ export default function DashboardLayout({
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         } md:translate-x-0 transition-transform duration-300 ease-in-out h-screen overflow-y-auto z-50`}
       >
-        <View className="flex flex-row justify-between items-center  mt-16 px-5">
-          <View className="">
-            <Text className="text-[#2A2A2A] text-base font-medium">
-              John Bruno
-            </Text>
-            <Text className="text-xs text-[#5D5D5D] font-normal">
-              NIN: 5278902456
-            </Text>
+        <TouchableOpacity
+          onPress={() => {
+            router.push("/home/dashboard/profile");
+          }}
+          activeOpacity={0.7}
+        >
+          <View className="flex flex-row justify-between items-center  mt-16 px-5">
+            <View className="">
+              <Text className="text-[#2A2A2A] text-base font-medium">
+                John Bruno
+              </Text>
+              <Text className="text-xs text-[#5D5D5D] font-normal">
+                NIN: 5278902456
+              </Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => setIsSidebarOpen(false)}
+              className=" w-6 h-6 md:hidden"
+            >
+              <RightArrowIcon />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            onPress={() => setIsSidebarOpen(false)}
-            className=" w-6 h-6 md:hidden"
-          >
-            <RightArrowIcon />
-          </TouchableOpacity>
-        </View>
-
+        </TouchableOpacity>
         {/* Main Menu */}
         <View className="flex font-[400] mt-8 text-black">
           <View className="space-y-4">

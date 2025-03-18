@@ -46,6 +46,14 @@ export default function RootLayout() {
         name="(auth)/agent/details"
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="home/dashboard/page"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="home/dashboard/profile"
+        options={{ headerShown: false }}
+      />
     </Stack>
   );
 }

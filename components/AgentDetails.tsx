@@ -14,6 +14,7 @@ import VisibilityToggleIcon from "@/components/VisibilityToggle";
 import { DetailsProps } from "@/types/interfaces";
 import DocumentUploadSection from "./DocumentUploadSection";
 import { Link } from "expo-router";
+import tw from "twrnc";
 
 const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
   const [firstName, setFirstName] = useState<string>("");
@@ -53,30 +54,31 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
     setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
-  const handleSubmit = () => { };
+  const handleSubmit = () => {};
 
   return (
-    <SafeAreaView className="bg-[#F7F7F7] h-full text-primaryText">
+    <SafeAreaView style={tw`twbg-[#F7F7F7] h-full text-primaryText`}>
       <ScrollView>
-        <View className="w-full justify-center h-full px-5 my-6">
+        <View style={tw`w-full justify-center h-full px-5 my-6`}>
           <Text className="text-center text-4xl  text-primaryText font-bold leading-10 ">
             Personal Details
           </Text>
 
-          <Text className="text-center text-sm font-normal text-[#434343]">
+          <Text style={tw`text-center text-sm font-normal text-[#434343]`}>
             Fill in your details to continue
           </Text>
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               First Name
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${isFirstNameFocused ? "border-primaryText" : "border-gray-300"
-                } `}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isFirstNameFocused ? "border-primaryText" : "border-gray-300"
+              } `}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Enter First Name"
                 value={firstName}
                 onChangeText={setFirstName}
@@ -85,16 +87,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               />
             </View>
           </View>
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Last Name
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${isLastNameFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isLastNameFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Enter Last Name"
                 value={lastName}
                 onChangeText={setLastName}
@@ -103,16 +106,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               />
             </View>
           </View>
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Phone Number
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${isPhoneNumberFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isPhoneNumberFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Enter Phone Number"
                 value={phoneNumber}
                 onChangeText={setPhoneNumber}
@@ -121,16 +125,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               />
             </View>
           </View>
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Email
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${isEmailFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isEmailFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Email"
                 value={email}
                 onChangeText={setEmail}
@@ -141,16 +146,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </View>
           </View>
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7tw`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Password
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3 bg-white ${isPassowrdFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isPassowrdFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Password"
                 secureTextEntry={!passwordVisible}
                 value={password}
@@ -165,16 +171,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </View>
           </View>
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               State
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${isStateFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
+                isStateFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Lagos"
                 value={state}
                 onChangeText={setState}
@@ -184,16 +191,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               <Dropdown />
             </View>
           </View>
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Address
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${isAddressFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
+                isAddressFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Lagos"
                 value={address}
                 onChangeText={setAddress}
@@ -202,16 +210,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
               />
             </View>
           </View>
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               NIN
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${isNINFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
+                isNINFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Lagos"
                 value={nin}
                 onChangeText={setNin}
@@ -223,16 +232,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
 
           <DocumentUploadSection />
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Market
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${isMarketFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
+                isMarketFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Select a Market"
                 value={market}
                 onChangeText={setMarket}
@@ -243,16 +253,17 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </View>
           </View>
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Referrals Name
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${isReferralFocused ? "border-primaryText" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
+                isReferralFocused ? "border-primaryText" : "border-gray-300"
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Enter Referrals Name"
                 value={referral}
                 onChangeText={setReferral}
@@ -262,18 +273,19 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </View>
           </View>
 
-          <View className="px-3 mt-7">
-            <Text className="text-base font-medium text-[#434343] px-3">
+          <View style={tw`px-3 mt-7`}>
+            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Referrals Phone Number
             </Text>
             <View
-              className={`flex-row items-center border rounded-lg px-3  bg-white ${isReferralPhoneNumberFocused
+              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
+                isReferralPhoneNumberFocused
                   ? "border-primaryText"
                   : "border-gray-300"
-                }`}
+              }`}
             >
               <TextInput
-                className="flex-1 py-3 px-3 text-base"
+                style={tw`flex-1 py-3 px-3 text-base`}
                 placeholder="Enter Referrals Phone Number"
                 value={referralPhoneNumber}
                 onChangeText={setReferralPhoneNumber}
@@ -283,19 +295,19 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </View>
           </View>
 
-          <View className="mt-[62px] mx-3">
+          <View style={tw`mt-[62px] mx-3`}>
             <TouchableOpacity
-              className="bg-primaryText p-3 rounded-lg mt-7 flex-row justify-center items-center"
+              style={tw`bg-primaryText p-3 rounded-lg mt-7 flex-row justify-center items-center`}
               onPress={handleSubmit}
             >
-              <Text className="text-white text-center font-medium ">
+              <Text style={tw`text-white text-center font-medium `}>
                 Submit
               </Text>
             </TouchableOpacity>
-            <Text className="text-center text-[#696969] mt-1 text-sm mb-10">
+            <Text style={tw`text-center text-[#696969] mt-1 text-sm mb-10`}>
               Already have an account?{" "}
               <Link href={href} asChild>
-                <Text className="text-[#FF9400]">Login</Text>
+                <Text style={tw`text-[#FF9400]`}>Login</Text>
               </Link>
             </Text>
           </View>

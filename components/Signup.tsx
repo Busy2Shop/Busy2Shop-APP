@@ -42,11 +42,11 @@ const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
   console.log(isEmailFocused);
 
   return (
-    <SafeAreaView style={tw`bg-[#F7F7F7] h-full text-[[#00A082]`}>
+    <SafeAreaView style={tw`bg-[#F7F7F7] h-full text-[#00A082]`}>
       <ScrollView>
         <View style={tw`w-full justify-center h-full px-5 my-6`}>
           <Text
-            style={tw`text-center text-4xl  text-[[#00A082] font-bold leading-10`}
+            style={tw`text-center text-4xl  text-[#00A082] font-bold leading-10`}
           >
             Sign Up
           </Text>
@@ -56,8 +56,9 @@ const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
               Email
             </Text>
             <View
-              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${isEmailFocused ? "border-[#00A082]" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isEmailFocused ? "border-[#00A082]" : "border-gray-300"
+              }`}
             >
               <TextInput
                 style={tw`flex-1 py-3 px-3 text-base border-0 focus:outline-none`}
@@ -77,8 +78,9 @@ const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
               Password
             </Text>
             <View
-              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${isPassowrdFocused ? "border-[#00A082]" : "border-gray-300"
-                }`}
+              style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
+                isPassowrdFocused ? "border-[#00A082]" : "border-gray-300"
+              }`}
             >
               <TextInput
                 style={tw`flex-1 py-3 px-3 text-base border-0 focus:outline-none`}
@@ -102,10 +104,11 @@ const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
               Confirm Password
             </Text>
             <View
-              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${isConfirmPasswordFocused
+              style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
+                isConfirmPasswordFocused
                   ? "border-[#00A082]"
                   : "border-gray-300"
-                }`}
+              }`}
             >
               <TextInput
                 style={tw`flex-1 py-3 px-3 text-base border-0 focus:outline-none`}

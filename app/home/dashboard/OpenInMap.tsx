@@ -2,7 +2,6 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import tw from "twrnc";
 import { useRouter } from "expo-router";
-
 import ArrowLeftIcon from "@/assets/icons/arrow-left.svg";
 import AppleMapIcon from "@/assets/icons/direct-up.svg";
 import GoogleMapIcon from "@/assets/icons/location.svg";
@@ -17,7 +16,6 @@ const OpenInMap = () => {
   const handleAppleMaps = () => {
     setSelectedMap("apple");
     console.log("Opening Apple Maps");
-
     router.back();
   };
 

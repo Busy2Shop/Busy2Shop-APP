@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
+
 import OnModeToggleIcon from "@/assets/icons/toggle-on.svg";
 import OrderIcon from "@/assets/icons/package.svg";
 import RatingIcon from "@/assets/icons/rating.svg";
@@ -20,7 +20,10 @@ const Profile = () => {
             onPress={() => router.push("/home/dashboard/page")}
             style={tw`w-6 h-6 md:hidden`}
           >
-            <LeftArrowIcon />
+            <Image
+              source={require("../../../assets/images/arrow-left.png")}
+              style={tw`absolute bottom-0 right-43 w-6 h-6`}
+            />
           </TouchableOpacity>
           <View>
             <Text style={tw`text-[#F7F7F7] pl-[3px] text-[20px] font-[500]`}>
@@ -57,7 +60,7 @@ const Profile = () => {
       {/* First card section */}
       <View
         style={{
-          ...tw`mx-5 rounded-lg my-6`,
+          ...tw`mx-5 px-[12px] rounded-lg my-6`,
           borderWidth: 0.5,
           borderColor: "#5D5D5D",
         }}
@@ -65,7 +68,7 @@ const Profile = () => {
         {/* Profile Settings Section */}
         <View
           style={{
-            ...tw`flex flex-row justify-between items-center px-5 py-4`,
+            ...tw`flex flex-row justify-between items-center py-4`,
             borderBottomWidth: 0.5,
             borderBottomColor: "#5D5D5D",
             marginHorizontal: 10,
@@ -89,7 +92,7 @@ const Profile = () => {
         {/* Biometrics Section */}
         <View
           style={{
-            ...tw`flex flex-row justify-between items-center px-5 py-4`,
+            ...tw`flex flex-row justify-between items-center  py-4`,
             marginHorizontal: 10,
           }}
         >
@@ -111,7 +114,7 @@ const Profile = () => {
       {/* Performance card section */}
       <View
         style={{
-          ...tw`mx-5 rounded-lg`,
+          ...tw`mx-5 px-[12px] rounded-lg`,
           borderWidth: 0.5,
           borderColor: "#5D5D5D",
         }}
@@ -119,7 +122,7 @@ const Profile = () => {
         {/* Package Delivered Section */}
         <View
           style={{
-            ...tw`flex flex-row justify-between items-center px-5 py-4`,
+            ...tw`flex flex-row justify-between items-center  py-4`,
             borderBottomWidth: 0.5,
             borderBottomColor: "#5D5D5D",
             marginHorizontal: 10,
@@ -137,7 +140,7 @@ const Profile = () => {
         {/* Average Ratings Section */}
         <View
           style={{
-            ...tw`flex flex-row justify-between items-center px-5 py-4`,
+            ...tw`flex flex-row justify-between items-center  py-4`,
             borderBottomWidth: 0.5,
             borderBottomColor: "#5D5D5D",
             marginHorizontal: 10,
@@ -155,7 +158,7 @@ const Profile = () => {
         {/* On-time Delivery Section */}
         <View
           style={{
-            ...tw`flex flex-row justify-between items-center px-5 py-4`,
+            ...tw`flex flex-row justify-between items-center py-4`,
             marginHorizontal: 10,
           }}
         >

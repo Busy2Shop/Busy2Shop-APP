@@ -60,7 +60,9 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
     <SafeAreaView style={tw`twbg-[#F7F7F7] h-full text-primaryText`}>
       <ScrollView>
         <View style={tw`w-full justify-center h-full px-5 my-6`}>
-          <Text className="text-center text-4xl  text-primaryText font-bold leading-10 ">
+          <Text
+            style={tw`text-center text-4xl  text-[#00A082] font-bold leading-10 `}
+          >
             Personal Details
           </Text>
 
@@ -297,7 +299,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
 
           <View style={tw`mt-[62px] mx-3`}>
             <TouchableOpacity
-              style={tw`bg-primaryText p-3 rounded-lg mt-7 flex-row justify-center items-center`}
+              style={tw` bg-[#00A082] p-3 rounded-lg mt-7 flex-row justify-center items-center`}
               onPress={handleSubmit}
             >
               <Text style={tw`text-white text-center font-medium `}>

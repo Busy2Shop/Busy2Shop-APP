@@ -54,6 +54,14 @@ export default function RootLayout() {
         name="home/dashboard/profile"
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="home/dashboard/settings"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="home/dashboard/OpenInMap"
+        options={{ headerShown: false }}
+      />
     </Stack>
   );
 }

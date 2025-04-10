@@ -12,7 +12,7 @@ export const MAIN_MENU = [
   { label: "Home", href: "/home", Icon: HomeIcon },
   { label: "Earnings", href: "/earnings", Icon: EarningIcon },
   { label: "Settings", href: "./settings", Icon: SettingsIcon },
-  { label: "Help", href: "/help", Icon: HelpIcon },
+  { label: "Help", href: "./help", Icon: HelpIcon },
 ];
 
 const SidebarLinks = () => {

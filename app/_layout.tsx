@@ -66,6 +66,10 @@ export default function RootLayout() {
         name="home/dashboard/help"
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="home/dashboard/faq"
+        options={{ headerShown: false }}
+      />
     </Stack>
   );
 }

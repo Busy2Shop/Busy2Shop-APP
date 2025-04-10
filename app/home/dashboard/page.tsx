@@ -62,7 +62,15 @@ export default function DashboardLayout({
           <View
             style={tw`flex flex-col gap-2 w-full px-5 py-4  h-[40px] text-sm font-normal`}
           >
-            <Text>FAQ</Text>
+            <TouchableOpacity
+              onPress={() => {
+                router.push("/home/dashboard/faq");
+              }}
+              className="flex flex-row justify-between items-center"
+            >
+              {" "}
+              <Text>FAQ</Text>
+            </TouchableOpacity>
             <Text style={tw`flex justify-between items-center`}>
               <Text>Dark mode</Text>
               <LightModeToggleIcon />

@@ -62,6 +62,10 @@ export default function RootLayout() {
         name="home/dashboard/OpenInMap"
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="home/dashboard/help"
+        options={{ headerShown: false }}
+      />
     </Stack>
   );
 }

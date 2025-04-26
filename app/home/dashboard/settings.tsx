@@ -3,6 +3,7 @@ import React from "react";
 import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
 import tw from "twrnc";
 import { useRouter } from "expo-router";
+import { Feather as Icon } from "@expo/vector-icons";
 
 const Settings = () => {
   const router = useRouter();
@@ -11,10 +12,26 @@ const Settings = () => {
     router.push("/home/dashboard/OpenInMap");
   };
 
+  const handleAgentOrderPreferences = () => {
+    // router.push("/home/dashboard/AgentOrderPreferences");
+  };
+
+  const handleHelp = () => {
+    router.push("/home/dashboard/help");
+  };
+
+  const handleFAQ = () => {
+    router.push("/home/dashboard/faq");
+  };
+
+  const handleDeleteAccount = () => {
+    // Add delete account logic here
+  };
+
   return (
-    <View>
+    <View style={tw`flex-1 bg-[#F7F7F7]`}>
       <View style={tw`flex flex-row items-center my-[24px] px-5 mt-14`}>
-        <TouchableOpacity onPress={() => router.push("/home/dashboard/page")}>
+        <TouchableOpacity onPress={() => router.back()}>
           <LeftArrowIcon />
         </TouchableOpacity>
         <Text style={tw`text-[20px] font-[500] text-[#2A2A2A] ml-2`}>
@@ -22,54 +39,83 @@ const Settings = () => {
         </Text>
       </View>
 
+      {/* First section with multiple options */}
       <View
-        style={tw`flex flex-row justify-between items-center border border-[#5D5D5D] mx-5 px-[12px] rounded-lg`}
+        style={tw`mx-5 bg-white rounded-lg overflow-hidden mb-4 border border-[#5D5D5D]`}
       >
+        {/* Open in Map */}
         <TouchableOpacity
           onPress={handleOpenMap}
-          style={tw`flex-1 flex-row justify-between items-center py-4`}
+          style={tw`flex-row justify-between items-center px-4 py-4 border-b border-gray-200`}
         >
           <View style={tw`flex flex-row items-center`}>
-            <Image
-              source={require("../../../assets/images/routing.png")}
-              style={{ width: 30, height: 30 }}
-            />
-            <Text style={tw`text-sm text-[#5D5D5D] pl-3 font-normal`}>
+            <Icon name="map-pin" size={24} color="#5D5D5D" style={tw`mr-3`} />
+            <Text style={tw`text-base text-[#5D5D5D] font-normal`}>
               Open in Map
             </Text>
           </View>
-          <Image
-            source={require("../../../assets/images/arrow-right.png")}
-            style={{ width: 30, height: 30 }}
-          />
+          <Icon name="chevron-right" size={20} color="#5D5D5D" />
+        </TouchableOpacity>
+
+        {/* Agent Order Preferences */}
+        <TouchableOpacity
+          onPress={handleAgentOrderPreferences}
+          style={tw`flex-row justify-between items-center px-4 py-4 border-b border-gray-200`}
+        >
+          <View style={tw`flex flex-row items-center`}>
+            <Icon name="users" size={24} color="#5D5D5D" style={tw`mr-3`} />
+            <Text style={tw`text-base text-[#5D5D5D] font-normal`}>
+              Agent Order Preferences
+            </Text>
+          </View>
+          <Icon name="chevron-right" size={20} color="#5D5D5D" />
+        </TouchableOpacity>
+
+        {/* Help */}
+        <TouchableOpacity
+          onPress={handleHelp}
+          style={tw`flex-row justify-between items-center px-4 py-4 border-b border-gray-200`}
+        >
+          <View style={tw`flex flex-row items-center`}>
+            <Icon
+              name="help-circle"
+              size={24}
+              color="#5D5D5D"
+              style={tw`mr-3`}
+            />
+            <Text style={tw`text-base text-[#5D5D5D] font-normal`}>Help</Text>
+          </View>
+          <Icon name="chevron-right" size={20} color="#5D5D5D" />
+        </TouchableOpacity>
+
+        {/* FAQ */}
+        <TouchableOpacity
+          onPress={handleFAQ}
+          style={tw`flex-row justify-between items-center px-4 py-4`}
+        >
+          <View style={tw`flex flex-row items-center`}>
+            <Icon name="file-text" size={24} color="#5D5D5D" style={tw`mr-3`} />
+            <Text style={tw`text-base text-[#5D5D5D] font-normal`}>FAQ</Text>
+          </View>
+          <Icon name="chevron-right" size={20} color="#5D5D5D" />
         </TouchableOpacity>
       </View>
 
+      {/* Delete Account Section */}
       <View
-        style={tw`flex flex-row justify-between items-center border border-[#5D5D5D] mx-5 px-[12px] mt-6 rounded-lg`}
+        style={tw`mx-5 bg-white rounded-lg overflow-hidden border border-[#5D5D5D]`}
       >
-        <View style={tw`flex flex-row items-center py-4`}>
-          <Image
-            source={require("../../../assets/images/trash.png")}
-            style={{ width: 30, height: 30 }}
-          />
-          <Text style={tw`text-sm text-[#5D5D5D] pl-3 font-normal`}>
-            Delete Account
-          </Text>
-        </View>
-        <Image
-          source={require("../../../assets/images/arrow-right.png")}
-          style={{ width: 30, height: 30 }}
-        />
-      </View>
-
-      <View>
         <TouchableOpacity
-          style={tw`bg-[#FED7DA] mx-5 px-[12px] mt-[52px] rounded-lg py-4`}
+          onPress={handleDeleteAccount}
+          style={tw`flex-row justify-between items-center px-4 py-4`}
         >
-          <Text style={tw`text-sm text-[#D00416] font-normal text-center`}>
-            Log Out
-          </Text>
+          <View style={tw`flex flex-row items-center`}>
+            <Icon name="trash-2" size={24} color="#D00416" style={tw`mr-3`} />
+            <Text style={tw`text-base text-[#D00416] font-normal`}>
+              Delete account
+            </Text>
+          </View>
+          <Icon name="chevron-right" size={20} color="#5D5D5D" />
         </TouchableOpacity>
       </View>
     </View>

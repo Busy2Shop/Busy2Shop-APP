@@ -15,18 +15,18 @@ const Profile = () => {
   return (
     <View style={tw`flex-1`}>
       <View style={tw`bg-[#00A082] rounded-b-2xl`}>
-        <View style={tw`flex flex-row items-center mt-[24px] px-5`}>
+        <View style={tw`flex flex-row items-center mt-[24px] px-5 mt-10`}>
           <TouchableOpacity
             onPress={() => router.push("/home/dashboard/page")}
             style={tw`w-6 h-6 md:hidden`}
           >
             <Image
               source={require("../../../assets/images/arrow-left.png")}
-              style={tw`absolute bottom-0 right-43 w-6 h-6`}
+              style={tw` bottom-0  w-6 h-6`}
             />
           </TouchableOpacity>
           <View>
-            <Text style={tw`text-[#F7F7F7] pl-[3px] text-[20px] font-[500]`}>
+            <Text style={tw`text-[#F7F7F7] pl-[3px] text-[20px] font-[500] `}>
               Profile
             </Text>
           </View>
@@ -35,11 +35,11 @@ const Profile = () => {
         <View style={tw`flex flex-row justify-center mt-8 relative`}>
           <Image
             source={require("../../../assets/images/Avatar.png")}
-            style={{ width: 80, height: 80 }}
+            style={tw`w-[80px] h-[80px] `}
           />
           <Image
             source={require("../../../assets/images/copy.png")}
-            style={tw`absolute bottom-0 right-43 w-6 h-6`}
+            style={tw`absolute bottom-0 right-38 w-6 h-6`}
           />
         </View>
 

@@ -40,11 +40,13 @@ const FAQ = () => {
     setExpandedIndex(expandedIndex === index ? -1 : index);
   };
   const router = useRouter();
-
+  const handleGoBack = () => {
+    router.back();
+  };
   return (
-    <View style={tw`flex-1 bg-white p-4`}>
+    <View style={tw`flex-1 bg-white p-4 pt-14`}>
       <View style={tw`flex-row items-center mb-6`}>
-        <TouchableOpacity onPress={() => router.push("/home/dashboard/page")}>
+        <TouchableOpacity onPress={handleGoBack}>
           <LeftArrowIcon />
         </TouchableOpacity>
         <Text style={tw`text-2xl font-semibold text-gray-800 ml-2`}>FAQs</Text>

@@ -19,9 +19,9 @@ export default function DashboardLayout({
     <View style={tw`flex-1 flex-col bg-[#F7F7F7] `}>
       {/* Header */}
       <View
-        style={tw`bg-[#F7F7F7] flex flex-row justify-between px-5 pt-6 mt-8`}
+        style={tw`bg-[#F7F7F7] flex flex-row justify-between px-5 pt-6 mt-8 `}
       >
-        <View style={tw`flex flex-row gap-2 items-center`}>
+        <View style={tw`flex flex-row gap-2 items-center `}>
           <View>
             <Image
               source={require("../../../assets/images/Avatar.png")}
@@ -38,9 +38,21 @@ export default function DashboardLayout({
             </Text>
           </View>
         </View>
-        <TouchableOpacity style={tw`px-4 text-xl`}>
-          <Icon name="bell" size={24} color="#5D5D5D" />
-        </TouchableOpacity>
+        <View style={tw`flex flex-row `}>
+          <View style={tw``}>
+            <TouchableOpacity style={tw``}>
+              <Icon name="bell" size={20} color="#5D5D5D" />
+            </TouchableOpacity>
+          </View>
+          <View style={tw`px-4`}>
+            <TouchableOpacity
+              style={tw` `}
+              onPress={() => router.push("/home/dashboard/settings")}
+            >
+              <Icon name="settings" size={20} color="#5D5D5D" />
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
 
       {/* Content */}

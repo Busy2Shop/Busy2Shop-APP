@@ -9,10 +9,13 @@ import SMSIcon from "@/assets/icons/sms.svg";
 
 const Help = () => {
   const router = useRouter();
+  const handleGoBack = () => {
+    router.back();
+  };
   return (
-    <View>
+    <View style={tw`flex-1 bg-white  pt-10`}>
       <View style={tw`flex flex-row items-center my-[24px] px-5`}>
-        <TouchableOpacity onPress={() => router.push("/home/dashboard/page")}>
+        <TouchableOpacity onPress={handleGoBack}>
           <LeftArrowIcon />
         </TouchableOpacity>
         <Text style={tw`text-[20px] font-[500] text-[#2A2A2A] ml-2`}>Help</Text>

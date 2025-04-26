@@ -4,32 +4,31 @@ import { useRouter, usePathname } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import tw from "twrnc";
 
-// Import your existing menu items - assuming this structure from SidebarLinks
-// If the actual structure is different, you'll need to adjust this
+// Updated menu items with the correct navigation structure
 const MAIN_MENU = [
-  { label: "Home", href: "/home/dashboard", icon: "home" },
+  { label: "Home", href: "/home/dashboard/page", icon: "home" },
+  { label: "Active Orders", href: "/home/dashboard/orders", icon: "cart" },
   { label: "Earnings", href: "/home/dashboard/earnings", icon: "wallet" },
-  { label: "Settings", href: "/home/dashboard/settings", icon: "settings" },
-  { label: "Help", href: "/home/dashboard/help", icon: "help-circle" },
+  { label: "Profile", href: "/home/dashboard/profile", icon: "person" },
 ];
 
-// Icon mapping to use Ionicons instead of SVG
+// Updated icon mapping to use Ionicons
 const iconMapping = {
   Home: {
     active: "home",
     inactive: "home-outline",
   },
+  "Active Orders": {
+    active: "cart",
+    inactive: "cart-outline",
+  },
   Earnings: {
     active: "wallet",
     inactive: "wallet-outline",
   },
-  Settings: {
-    active: "settings",
-    inactive: "settings-outline",
-  },
-  Help: {
-    active: "help-circle",
-    inactive: "help-circle-outline",
+  Profile: {
+    active: "person",
+    inactive: "person-outline",
   },
 };
 

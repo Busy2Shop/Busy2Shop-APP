@@ -7,7 +7,11 @@ import tw from "twrnc";
 // Updated menu items with the correct navigation structure
 const MAIN_MENU = [
   { label: "Home", href: "/home/dashboard/page", icon: "home" },
-  { label: "Active Orders", href: "/home/dashboard/orders", icon: "cart" },
+  {
+    label: "Active Orders",
+    href: "/home/dashboard/activeOrders",
+    icon: "cart",
+  },
   { label: "Earnings", href: "/home/dashboard/earnings", icon: "wallet" },
   { label: "Profile", href: "/home/dashboard/profile", icon: "person" },
 ];

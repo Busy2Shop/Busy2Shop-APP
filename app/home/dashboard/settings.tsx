@@ -13,7 +13,7 @@ const Settings = () => {
   };
 
   const handleAgentOrderPreferences = () => {
-    // router.push("/home/dashboard/AgentOrderPreferences");
+    router.push("/home/dashboard/agentOrderPreferences");
   };
 
   const handleHelp = () => {

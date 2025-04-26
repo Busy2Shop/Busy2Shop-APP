@@ -4,32 +4,35 @@ import { useRouter, usePathname } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import tw from "twrnc";
 
-// Import your existing menu items - assuming this structure from SidebarLinks
-// If the actual structure is different, you'll need to adjust this
+// Updated menu items with the correct navigation structure
 const MAIN_MENU = [
-  { label: "Home", href: "/home/dashboard", icon: "home" },
+  { label: "Home", href: "/home/dashboard/page", icon: "home" },
+  {
+    label: "Active Orders",
+    href: "/home/dashboard/activeOrders",
+    icon: "cart",
+  },
   { label: "Earnings", href: "/home/dashboard/earnings", icon: "wallet" },
-  { label: "Settings", href: "/home/dashboard/settings", icon: "settings" },
-  { label: "Help", href: "/home/dashboard/help", icon: "help-circle" },
+  { label: "Profile", href: "/home/dashboard/profile", icon: "person" },
 ];
 
-// Icon mapping to use Ionicons instead of SVG
+// Updated icon mapping to use Ionicons
 const iconMapping = {
   Home: {
     active: "home",
     inactive: "home-outline",
   },
+  "Active Orders": {
+    active: "cart",
+    inactive: "cart-outline",
+  },
   Earnings: {
     active: "wallet",
     inactive: "wallet-outline",
   },
-  Settings: {
-    active: "settings",
-    inactive: "settings-outline",
-  },
-  Help: {
-    active: "help-circle",
-    inactive: "help-circle-outline",
+  Profile: {
+    active: "person",
+    inactive: "person-outline",
   },
 };
 
@@ -37,11 +40,28 @@ const BottomNavBar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Function to check if the current path matches or is a subpath of a menu item
+  const isActive = (menuPath: string) => {
+    // If paths are exactly the same
+    if (pathname === menuPath) return true;
+
+    // Handle nested routes - check if the current path starts with the menu item path
+    // This ensures the tab stays active when on subpages
+    if (menuPath !== "/home/dashboard/page") {
+      // Avoid matching everything with the home route
+      return pathname.startsWith(menuPath);
+    }
+
+    return false;
+  };
+
   return (
-    <View style={tw`flex-row bg-white border-t border-gray-200`}>
+    <View
+      style={tw`flex-row bg-white border-t border-gray-200 absolute bottom-0 left-0 right-0`}
+    >
       {MAIN_MENU.map((item) => {
-        const isActive = pathname === item.href;
-        const iconName = isActive
+        const active = isActive(item.href);
+        const iconName = active
           ? iconMapping[item.label as keyof typeof iconMapping]?.active
           : iconMapping[item.label as keyof typeof iconMapping]?.inactive;
 
@@ -54,11 +74,11 @@ const BottomNavBar = () => {
             <Ionicons
               name={iconName as keyof typeof Ionicons.glyphMap}
               size={24}
-              color={isActive ? "#00A884" : "#666"}
+              color={active ? "#00A884" : "#666"}
             />
             <Text
               style={tw`text-xs mt-1 ${
-                isActive ? "text-[#00A884] font-medium" : "text-gray-500"
+                active ? "text-[#00A884] font-medium" : "text-gray-500"
               }`}
             >
               {item.label}

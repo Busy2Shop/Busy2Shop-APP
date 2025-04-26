@@ -79,6 +79,14 @@ export default function RootLayout() {
           name="home/dashboard/faq"
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="home/dashboard/activeOrders"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="home/dashboard/agentOrderPreferences"
+          options={{ headerShown: false }}
+        />
       </Stack>
     </Provider>
   );

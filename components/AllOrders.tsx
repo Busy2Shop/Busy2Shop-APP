@@ -16,10 +16,18 @@ const AllOrders: React.FC<AllOrdersProps> = ({ setPage }) => {
   return (
     <View style={tw`flex-1 flex-col gap-4 bg-[#F7F7F7] max-w-[375px]`}>
       <View style={tw`flex flex-row gap-1 mx-auto`}>
-
-        <Button fontWeight="medium" textColor="[#00A082]" bgColor="bg-transparent" borderStyling="border border-[#00A082]">Refresh</Button>
-        <Button fontWeight="medium">Go Offline</Button>
-
+        <Button
+          fontWeight="medium"
+          textColor="[#00A082]"
+          bgColor="bg-transparent"
+          borderStyling="border border-[#00A082]"
+          width="w-[160px]"
+        >
+          Refresh
+        </Button>
+        <Button width="w-[160px]" fontWeight="medium">
+          Go Offline
+        </Button>
       </View>
 
       <View style={tw`flex-1 flex-col gap-2`}>

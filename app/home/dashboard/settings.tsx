@@ -13,7 +13,7 @@ const Settings = () => {
 
   return (
     <View>
-      <View style={tw`flex flex-row items-center my-[24px] px-5`}>
+      <View style={tw`flex flex-row items-center my-[24px] px-5 mt-14`}>
         <TouchableOpacity onPress={() => router.push("/home/dashboard/page")}>
           <LeftArrowIcon />
         </TouchableOpacity>

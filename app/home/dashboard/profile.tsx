@@ -8,14 +8,15 @@ import TimerIcon from "@/assets/icons/timer.svg";
 
 import tw from "twrnc";
 import { useRouter } from "expo-router";
+import BottomNavBar from "@/components/BottomNavbar";
 
 const Profile = () => {
   const router = useRouter();
 
   return (
-    <View style={tw`flex-1`}>
+    <View style={tw`flex-1 mt-10`}>
       <View style={tw`bg-[#00A082] rounded-b-2xl`}>
-        <View style={tw`flex flex-row items-center mt-[24px] px-5 mt-10`}>
+        <View style={tw`flex flex-row items-center mt-[24px] px-5 `}>
           <TouchableOpacity
             onPress={() => router.push("/home/dashboard/page")}
             style={tw`w-6 h-6 md:hidden`}
@@ -171,6 +172,7 @@ const Profile = () => {
           <Text style={tw`text-[#5D5D5D] text-[16px] font-[500]`}>98%</Text>
         </View>
       </View>
+      <BottomNavBar />
     </View>
   );
 };

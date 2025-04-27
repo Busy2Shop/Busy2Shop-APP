@@ -27,7 +27,7 @@ const OpenInMap = () => {
   };
 
   return (
-    <View style={tw`flex-1 bg-white`}>
+    <View style={tw`flex-1 bg-white mt-10`}>
       <View style={tw`flex-row items-center my-6 px-5`}>
         <TouchableOpacity onPress={handleGoBack}>
           <ArrowLeftIcon />

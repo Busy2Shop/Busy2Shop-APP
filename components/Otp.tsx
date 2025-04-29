@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AuthenticationProps } from "@/types/interfaces";
 import OTPTextInput from "react-native-otp-textinput";
+import tw from "twrnc";
 
 import { router } from "expo-router";
 
@@ -16,20 +17,24 @@ const OTPPage: React.FC<AuthenticationProps> = ({ href }) => {
   };
 
   return (
-    <SafeAreaView className="bg-[#F7F7F7] h-full text-primaryText">
+    <SafeAreaView style={tw`bg-[#F7F7F7] h-full text-[#00A082]`}>
       <ScrollView>
-        <View className="w-full justify-center h-full px-5 my-6">
-          <Text className="text-center text-4xl  text-primaryText font-bold leading-10 ">
+        <View style={tw`w-full justify-center h-full px-5 my-6`}>
+          <Text
+            style={tw`text-center text-4xl  text-[#00A082] font-bold leading-10 `}
+          >
             OTP
           </Text>
-          <View className="items-center text-sm">
-            <Text className="text-[#5D5D5D]">
+          <View style={tw`items-center text-sm`}>
+            <Text style={tw`text-[#5D5D5D]`}>
               Please enter the code we sent to{" "}
             </Text>
-            <Text className="text-[#FB4F00] underline ">{emailAddress}</Text>
+            <Text style={tw`text-[#FB4F00] underline`}>{emailAddress}</Text>
           </View>
 
-          <View className="w-[80px] mt-[52px] self-center flex-1 justify-center items-center p-4">
+          <View
+            style={tw`w-[80px] mt-6  self-center flex-1 justify-center items-center`}
+          >
             <OTPTextInput
               inputCount={4}
               handleTextChange={setOtp}
@@ -42,20 +47,20 @@ const OTPPage: React.FC<AuthenticationProps> = ({ href }) => {
               }}
             />
           </View>
-          <Text className="text-[#FB4F00] text-center mt-3">Resend OTP</Text>
+          <Text style={tw`text-[#FB4F00] text-center `}>Resend OTP</Text>
 
-          <View className="mt-[412px] mx-3">
+          <View style={tw`mt-20 mx-3`}>
             <TouchableOpacity
-              className="bg-primaryText p-3 rounded-lg mt-7 flex-row justify-center items-center"
+              style={tw`bg-[#00A082] p-3 rounded-lg mt-7 flex-row justify-center items-center`}
               onPress={handleSubmit}
             >
-              <Text className="text-[#F7F7F7] text-center font-medium ">
+              <Text style={tw`text-[#F7F7F7] text-center font-medium `}>
                 Submit
               </Text>
             </TouchableOpacity>
           </View>
 
-          <Text className="text-center text-[#6B6B6B] mt-3">
+          <Text style={tw`text-center text-[#6B6B6B] mt-3`}>
             By continuing, you agree to our Terms of Service and Privacy Policy.
           </Text>
         </View>

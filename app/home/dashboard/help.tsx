@@ -18,7 +18,7 @@ const Help = () => {
         <TouchableOpacity onPress={handleGoBack}>
           <LeftArrowIcon />
         </TouchableOpacity>
-        <Text style={tw`text-[20px] font-[500] text-[#2A2A2A] ml-2`}>Help</Text>
+        <Text style={tw`text-[20px] font-500 text-[#2A2A2A] ml-2`}>Help</Text>
       </View>
 
       <View

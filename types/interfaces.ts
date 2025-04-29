@@ -4,7 +4,8 @@ export interface AuthenticationProps {
     | "/agent/signup"
     | "/user/login"
     | "/user/signup"
-    | "/agent/details";
+    | "/agent/details"
+    | "/home/dashboard/page";
 }
 
 export interface SignupProps extends AuthenticationProps {
@@ -30,8 +31,8 @@ export interface ShoppingItem {
   name: string;
   quantity: number;
   unit: string;
-  checked?: boolean; 
-};
+  checked?: boolean;
+}
 
 export interface Order {
   orderNo: string;
@@ -41,4 +42,4 @@ export interface Order {
   shoppingList: ShoppingItem[];
   additionalNotes: string;
   budget: number;
-};
+}

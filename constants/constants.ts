@@ -7,7 +7,7 @@ export const AvailableOrder: Order[] = [
     superMarket: "Shoprite Mall", // Supermarket
     deliveryLocation: "12, Adeola Odeku St, Victoria Island, Lagos", // Delivery location
     shoppingList: [
-      { name: "Rice", quantity: 2, unit: "kg"},
+      { name: "Rice", quantity: 2, unit: "kg" },
       { name: "Beans", quantity: 1, unit: "bag" },
       { name: "Vegetable Oil", quantity: 2, unit: "litres" },
     ], // Shopping list

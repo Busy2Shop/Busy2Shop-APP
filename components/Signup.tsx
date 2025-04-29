@@ -127,7 +127,7 @@ const AgentSignup: React.FC<SignupProps> = ({ href, otpRoute }) => {
             </View>
           </View>
 
-          <View style={tw`mt-[208px] mx-3`}>
+          <View style={tw`mt-22 mx-3`}>
             <Button fullWidth={true} onPress={handleSignUp}>
               Sign Up
             </Button>

@@ -8,14 +8,15 @@ import TimerIcon from "@/assets/icons/timer.svg";
 
 import tw from "twrnc";
 import { useRouter } from "expo-router";
+import BottomNavBar from "@/components/BottomNavbar";
 
 const Profile = () => {
   const router = useRouter();
 
   return (
-    <View style={tw`flex-1`}>
+    <View style={tw`flex-1 `}>
       <View style={tw`bg-[#00A082] rounded-b-2xl`}>
-        <View style={tw`flex flex-row items-center mt-[24px] px-5 mt-10`}>
+        <View style={tw`flex flex-row items-center mt-[24px] px-5 mt-14 `}>
           <TouchableOpacity
             onPress={() => router.push("/home/dashboard/page")}
             style={tw`w-6 h-6 md:hidden`}
@@ -26,7 +27,7 @@ const Profile = () => {
             />
           </TouchableOpacity>
           <View>
-            <Text style={tw`text-[#F7F7F7] pl-[3px] text-[20px] font-[500] `}>
+            <Text style={tw`text-[#F7F7F7] pl-[3px] text-[20px] font-500`}>
               Profile
             </Text>
           </View>
@@ -49,9 +50,6 @@ const Profile = () => {
           <View style="">
             <Text style={tw`text-base text-[#F7F7F7] font-medium`}>
               John Bruno
-            </Text>
-            <Text style={tw`text-sm text-[#F7F7F7] font-normal`}>
-              NIN: 5278902456
             </Text>
           </View>
         </View>
@@ -134,7 +132,7 @@ const Profile = () => {
               Package Delivered
             </Text>
           </View>
-          <Text style={tw`text-[#5D5D5D] text-[16px] font-[500]`}>63</Text>
+          <Text style={tw`text-[#5D5D5D] text-[16px] font-500`}>63</Text>
         </View>
 
         {/* Average Ratings Section */}
@@ -152,7 +150,7 @@ const Profile = () => {
               Average Ratings
             </Text>
           </View>
-          <Text style={tw`text-[#5D5D5D] text-[16px] font-[500]`}>4.9/5</Text>
+          <Text style={tw`text-[#5D5D5D] text-[16px] font-500`}>4.9/5</Text>
         </View>
 
         {/* On-time Delivery Section */}
@@ -168,9 +166,10 @@ const Profile = () => {
               On time Delivery
             </Text>
           </View>
-          <Text style={tw`text-[#5D5D5D] text-[16px] font-[500]`}>98%</Text>
+          <Text style={tw`text-[#5D5D5D] text-[16px] font-500`}>98%</Text>
         </View>
       </View>
+      <BottomNavBar />
     </View>
   );
 };

@@ -13,7 +13,7 @@ const Settings = () => {
   };
 
   const handleAgentOrderPreferences = () => {
-    // router.push("/home/dashboard/AgentOrderPreferences");
+    router.push("/home/dashboard/agentOrderPreferences");
   };
 
   const handleHelp = () => {
@@ -34,7 +34,7 @@ const Settings = () => {
         <TouchableOpacity onPress={() => router.back()}>
           <LeftArrowIcon />
         </TouchableOpacity>
-        <Text style={tw`text-[20px] font-[500] text-[#2A2A2A] ml-2`}>
+        <Text style={tw`text-[20px] font-500 text-[#2A2A2A] ml-2`}>
           Settings
         </Text>
       </View>

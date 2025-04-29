@@ -13,7 +13,7 @@ import EmailIcon from "@/assets/icons/sms.svg";
 import VisibilityToggleIcon from "@/components/VisibilityToggle";
 import { DetailsProps } from "@/types/interfaces";
 import DocumentUploadSection from "./DocumentUploadSection";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import tw from "twrnc";
 
 const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
@@ -54,10 +54,14 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
     setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
-  const handleSubmit = () => {};
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    router.push("/home/dashboard/page");
+  };
 
   return (
-    <SafeAreaView style={tw`twbg-[#F7F7F7] h-full text-primaryText`}>
+    <SafeAreaView style={tw`bg-[#F7F7F7] h-full text-[#00A082]`}>
       <ScrollView>
         <View style={tw`w-full justify-center h-full px-5 my-6`}>
           <Text
@@ -76,7 +80,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
-                isFirstNameFocused ? "border-primaryText" : "border-gray-300"
+                isFirstNameFocused ? "border-[#00A082]" : "border-gray-300"
               } `}
             >
               <TextInput
@@ -95,7 +99,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
-                isLastNameFocused ? "border-primaryText" : "border-gray-300"
+                isLastNameFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -114,7 +118,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
-                isPhoneNumberFocused ? "border-primaryText" : "border-gray-300"
+                isPhoneNumberFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -133,7 +137,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
-                isEmailFocused ? "border-primaryText" : "border-gray-300"
+                isEmailFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -148,13 +152,13 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </View>
           </View>
 
-          <View style={tw`px-3 mt-7tw`}>
+          <View style={tw`px-3 mt-7`}>
             <Text style={tw`text-base font-medium text-[#434343] px-3`}>
               Password
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
-                isPassowrdFocused ? "border-primaryText" : "border-gray-300"
+                isPassowrdFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -179,7 +183,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
-                isStateFocused ? "border-primaryText" : "border-gray-300"
+                isStateFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -199,7 +203,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
-                isAddressFocused ? "border-primaryText" : "border-gray-300"
+                isAddressFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -218,7 +222,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
-                isNINFocused ? "border-primaryText" : "border-gray-300"
+                isNINFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -240,7 +244,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
-                isMarketFocused ? "border-primaryText" : "border-gray-300"
+                isMarketFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -261,7 +265,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             </Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
-                isReferralFocused ? "border-primaryText" : "border-gray-300"
+                isReferralFocused ? "border-[#00A082]" : "border-gray-300"
               }`}
             >
               <TextInput
@@ -282,7 +286,7 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
             <View
               style={tw`flex-row items-center border rounded-lg px-3  bg-white ${
                 isReferralPhoneNumberFocused
-                  ? "border-primaryText"
+                  ? "border-[#00A082]"
                   : "border-gray-300"
               }`}
             >

@@ -1,6 +1,6 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
-const OnboardingScreen = () => {
+const Logo = () => {
   const logo = require("../assets/images/busy2shop.png");
   return (
     <View>
@@ -13,4 +13,4 @@ const OnboardingScreen = () => {
   );
 };
 
-export default OnboardingScreen;
+export default Logo;

@@ -1,58 +1,73 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useRouter, usePathname } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
 import tw from "twrnc";
 
-// Updated menu items with the correct navigation structure
+import HomeActiveIcon from "@/assets/icons/home-active.svg";
+import HomeInactiveIcon from "@/assets/icons/home-inactive.svg";
+import CartActiveIcon from "@/assets/icons/box-active.svg";
+import CartInactiveIcon from "@/assets/icons/box-inactive.svg";
+import WalletActiveIcon from "@/assets/icons/empty-wallet-active.svg";
+import WalletInactiveIcon from "@/assets/icons/empty-wallet-inactive.svg";
+import PersonActiveIcon from "@/assets/icons/profile-circle-active.svg";
+import PersonInactiveIcon from "@/assets/icons/profile-circle-inactive.svg";
+
 const MAIN_MENU = [
-  { label: "Home", href: "/home/dashboard/page", icon: "home" },
+  { label: "Home", href: "/home/dashboard/page" },
   {
     label: "Active Orders",
     href: "/home/dashboard/activeOrders",
-    icon: "cart",
   },
-  { label: "Earnings", href: "/home/dashboard/earnings", icon: "wallet" },
-  { label: "Profile", href: "/home/dashboard/profile", icon: "person" },
+  { label: "Earnings", href: "/home/dashboard/earnings" },
+  { label: "Profile", href: "/home/dashboard/profile" },
 ];
-
-// Updated icon mapping to use Ionicons
-const iconMapping = {
-  Home: {
-    active: "home",
-    inactive: "home-outline",
-  },
-  "Active Orders": {
-    active: "cart",
-    inactive: "cart-outline",
-  },
-  Earnings: {
-    active: "wallet",
-    inactive: "wallet-outline",
-  },
-  Profile: {
-    active: "person",
-    inactive: "person-outline",
-  },
-};
 
 const BottomNavBar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Function to check if the current path matches or is a subpath of a menu item
   const isActive = (menuPath: string) => {
-    // If paths are exactly the same
     if (pathname === menuPath) return true;
 
-    // Handle nested routes - check if the current path starts with the menu item path
-    // This ensures the tab stays active when on subpages
     if (menuPath !== "/home/dashboard/page") {
-      // Avoid matching everything with the home route
       return pathname.startsWith(menuPath);
     }
 
     return false;
+  };
+
+  const renderIcon = (label: string, active: boolean) => {
+    const iconSize = { width: 24, height: 24 };
+    const iconColor = active ? "#00A884" : "#666";
+
+    switch (label) {
+      case "Home":
+        return active ? (
+          <HomeActiveIcon {...iconSize} color={iconColor} />
+        ) : (
+          <HomeInactiveIcon {...iconSize} color={iconColor} />
+        );
+      case "Active Orders":
+        return active ? (
+          <CartActiveIcon {...iconSize} color={iconColor} />
+        ) : (
+          <CartInactiveIcon {...iconSize} color={iconColor} />
+        );
+      case "Earnings":
+        return active ? (
+          <WalletActiveIcon {...iconSize} color={iconColor} />
+        ) : (
+          <WalletInactiveIcon {...iconSize} color={iconColor} />
+        );
+      case "Profile":
+        return active ? (
+          <PersonActiveIcon {...iconSize} color={iconColor} />
+        ) : (
+          <PersonInactiveIcon {...iconSize} color={iconColor} />
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -61,9 +76,6 @@ const BottomNavBar = () => {
     >
       {MAIN_MENU.map((item) => {
         const active = isActive(item.href);
-        const iconName = active
-          ? iconMapping[item.label as keyof typeof iconMapping]?.active
-          : iconMapping[item.label as keyof typeof iconMapping]?.inactive;
 
         return (
           <TouchableOpacity
@@ -71,11 +83,7 @@ const BottomNavBar = () => {
             style={tw`flex-1 items-center py-3`}
             onPress={() => router.push(item.href as any)}
           >
-            <Ionicons
-              name={iconName as keyof typeof Ionicons.glyphMap}
-              size={24}
-              color={active ? "#00A884" : "#666"}
-            />
+            {renderIcon(item.label, active)}
             <Text
               style={tw`text-xs mt-1 ${
                 active ? "text-[#00A884] font-medium" : "text-gray-500"

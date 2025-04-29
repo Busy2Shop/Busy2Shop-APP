@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import { Feather as Icon } from "@expo/vector-icons";
 import tw from "twrnc";
 import BottomNavBar from "@/components/BottomNavbar";
 import AllOrders from "@/components/AllOrders";
-import SingleOrder from "@/components/SingleOrder";
 
 import { useRouter } from "expo-router";
+
+import SingleOrder from "@/components/SingleOrder";
+
+import BellIcon from "@/assets/icons/bell.svg";
+import SettingsIcon from "@/assets/icons/settings.svg";
 
 export default function DashboardLayout({
   children,
@@ -15,6 +18,7 @@ export default function DashboardLayout({
 }) {
   const [page, setPage] = useState<number>(0);
   const router = useRouter();
+
   return (
     <View style={tw`flex-1 flex-col bg-[#F7F7F7] `}>
       {/* Header */}
@@ -34,14 +38,14 @@ export default function DashboardLayout({
               Hi, John
             </Text>
             <Text style={tw`text-xs font-normal text-[#5D5D5D]`}>
-              Welcome back to waka2shop
+              Welcome back to busy2shop
             </Text>
           </View>
         </View>
         <View style={tw`flex flex-row `}>
           <View style={tw``}>
             <TouchableOpacity style={tw``}>
-              <Icon name="bell" size={20} color="#5D5D5D" />
+              <BellIcon width={24} height={24} color="#5D5D5D" />
             </TouchableOpacity>
           </View>
           <View style={tw`px-4`}>
@@ -49,7 +53,7 @@ export default function DashboardLayout({
               style={tw` `}
               onPress={() => router.push("/home/dashboard/settings")}
             >
-              <Icon name="settings" size={20} color="#5D5D5D" />
+              <SettingsIcon width={24} height={24} color="#5D5D5D" />
             </TouchableOpacity>
           </View>
         </View>

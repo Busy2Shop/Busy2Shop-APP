@@ -11,7 +11,6 @@ const DocumentUploadSection = () => {
   const takePhoto = async (
     setImage: React.Dispatch<React.SetStateAction<string | null>>
   ) => {
-    // Request camera permissions
     if (Platform.OS !== "web") {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
       if (status !== "granted") {
@@ -20,7 +19,6 @@ const DocumentUploadSection = () => {
       }
     }
 
-    // Launch camera directly
     let result = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3],

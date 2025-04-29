@@ -52,12 +52,10 @@ const OrderCard = ({
 
   return (
     <TouchableOpacity onPress={onPress} style={tw`flex-row mb-4`}>
-      {/* Green stripe on the left */}
       <View style={tw`w-1.5 bg-emerald-500 rounded-l-lg`} />
 
-      {/* Card content */}
       <View
-        style={tw`flex-1 bg-white p-4 rounded-r-lg border-t border-r border-b border-gray-100`}
+        style={tw`flex-1 bg-white p-4 rounded-r-lg border-t border-r border-b border-gray-100 `}
       >
         <View style={tw`flex-row justify-between items-center mb-2`}>
           <Text style={tw`text-lg font-semibold`}>Order #{id}</Text>
@@ -205,8 +203,6 @@ const OrderSummaryScreen = ({
           </View>
         </View>
       </ScrollView>
-
-      {/* Add BottomNavBar */}
     </View>
   );
 };
@@ -244,10 +240,8 @@ const ActiveOrders = () => {
     },
   ];
 
-  // Calculate total number of items
   const totalItems = orders.reduce((sum, order) => sum + order.items, 0);
 
-  // Create order summary data
   const orderSummary: OrderSummary = {
     totalActiveOrders: "3/3",
     estimatedCompletionTime: "2h 15m",
@@ -298,7 +292,6 @@ const ActiveOrders = () => {
         ))}
       </ScrollView>
 
-      {/* Add BottomNavBar */}
       <BottomNavBar />
     </View>
   );

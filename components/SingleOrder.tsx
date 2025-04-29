@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-} from "react-native";
+import { View } from "react-native";
 import OrderDetails from "./OrderDetails";
 import ShoppingDetails from "./ShoppingDetails";
 import DeliveryDetails from "./DeliveryDetails";
@@ -15,9 +13,16 @@ const SingleOrder: React.FC<SingleOrderProps> = ({ setPage }) => {
 
   return (
     <View>
-      {
-        singleOrderPage === 0 ? <OrderDetails setOrderPage={setPage} setSingleOrderPage={setSingleOrderPage} /> : singleOrderPage === 1 ? <ShoppingDetails setSingleOrderPage={setSingleOrderPage} /> : <DeliveryDetails setSingleOrderPage={setSingleOrderPage} />
-      }
+      {singleOrderPage === 0 ? (
+        <OrderDetails
+          setOrderPage={setPage}
+          setSingleOrderPage={setSingleOrderPage}
+        />
+      ) : singleOrderPage === 1 ? (
+        <ShoppingDetails setSingleOrderPage={setSingleOrderPage} />
+      ) : (
+        <DeliveryDetails setSingleOrderPage={setSingleOrderPage} />
+      )}
     </View>
   );
 };

@@ -9,13 +9,13 @@ import {
 } from "react-native";
 import React, { useState, useRef } from "react";
 import tw from "twrnc";
-import { Feather } from "@expo/vector-icons"; // Make sure to install expo/vector-icons
+import { Feather } from "@expo/vector-icons";
 
 const { width } = Dimensions.get("window");
 
 type Slide = {
   id: string;
-  image: any; // Replace 'any' with the appropriate type for your image source
+  image: any;
   title: string;
   description: string;
 };
@@ -23,7 +23,7 @@ type Slide = {
 const Onboarding = ({
   slides,
   onComplete,
-  primaryColor = "#00A082", // Default green color from the design
+  primaryColor = "#00A082",
 }: {
   slides: Slide[];
   onComplete?: () => void;
@@ -39,7 +39,6 @@ const Onboarding = ({
         animated: true,
       });
     } else {
-      // Complete onboarding
       onComplete && onComplete();
     }
   };
@@ -59,7 +58,6 @@ const Onboarding = ({
 
     return (
       <View style={[tw`flex-1 items-center px-4 bg-[#00A082]`, { width }]}>
-        {/* Top portion with the image */}
         <View style={tw`items-center mt-30 flex-1`}>
           <View
             style={tw`bg-${primaryColor.replace(
@@ -82,10 +80,8 @@ const Onboarding = ({
             <Text style={tw`text-[#F7F7F7] text-[20px]   text-center mb-9`}>
               {item.description}
             </Text>
-
-            {/* Circle button */}
           </View>
-          {/* Bottom green card with text and button */}
+
           <View style={tw`items-center -mt-6`}>
             <TouchableOpacity
               style={tw`bg-white w-12 h-12 rounded-full items-center justify-center`}
@@ -117,7 +113,6 @@ const Onboarding = ({
         viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
       />
 
-      {/* Page indicator dots */}
       <View
         style={tw`flex-row justify-center pb-8 absolute bottom-0 left-0 right-0`}
       >

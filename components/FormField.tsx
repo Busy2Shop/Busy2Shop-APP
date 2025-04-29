@@ -26,9 +26,8 @@ const FormField: React.FC<FormFieldProps> = ({
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const eyeClose = require("../assets/images/eye-slash.png");
-  const eyeOpen = require("../assets/images/eye-slash.png"); // Fixed this - was using eye-slash for both
+  const eyeOpen = require("../assets/images/eye-slash.png");
 
-  // Check if the field is a password field
   const isPasswordField = title === "Password" || title === "Confirm Password";
 
   return (

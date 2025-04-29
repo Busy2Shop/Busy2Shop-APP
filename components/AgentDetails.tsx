@@ -13,7 +13,7 @@ import EmailIcon from "@/assets/icons/sms.svg";
 import VisibilityToggleIcon from "@/components/VisibilityToggle";
 import { DetailsProps } from "@/types/interfaces";
 import DocumentUploadSection from "./DocumentUploadSection";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import tw from "twrnc";
 
 const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
@@ -54,7 +54,11 @@ const AgentDetails: React.FC<DetailsProps> = ({ href }) => {
     setConfirmPasswordVisible(!confirmPasswordVisible);
   };
 
-  const handleSubmit = () => {};
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    router.push("/home/dashboard/page");
+  };
 
   return (
     <SafeAreaView style={tw`twbg-[#F7F7F7] h-full text-primaryText`}>

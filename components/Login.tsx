@@ -12,7 +12,7 @@ import GoogleIcon from "@/assets/icons/google.svg";
 import EmailIcon from "@/assets/icons/sms.svg";
 import VisibilityToggleIcon from "@/components/VisibilityToggle";
 import { AuthenticationProps } from "@/types/interfaces";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import Button from "./Button";
 import tw from "twrnc";
 
@@ -27,7 +27,9 @@ const LoginPage: React.FC<AuthenticationProps> = ({ href }) => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const handleLogin = () => {};
+  const handleLogin = () => {
+    router.push("/home/dashboard/page");
+  };
 
   return (
     <SafeAreaView style={tw`bg-[#F7F7F7] h-full text-[#00A082]`}>
@@ -40,9 +42,7 @@ const LoginPage: React.FC<AuthenticationProps> = ({ href }) => {
           </Text>
 
           <View style={tw`px-3 mt-7`}>
-            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
-              Email
-            </Text>
+            <Text style={tw`text-base font-medium text-[#434343] `}>Email</Text>
             <View
               style={tw`flex-row items-center border rounded-lg px-3 bg-white ${
                 isEmailFocused ? "border-[#00A082]" : "border-gray-300"
@@ -62,7 +62,7 @@ const LoginPage: React.FC<AuthenticationProps> = ({ href }) => {
           </View>
 
           <View style={tw`px-3 mt-7`}>
-            <Text style={tw`text-base font-medium text-[#434343] px-3`}>
+            <Text style={tw`text-base font-medium text-[#434343] `}>
               Password
             </Text>
             <View
@@ -85,9 +85,12 @@ const LoginPage: React.FC<AuthenticationProps> = ({ href }) => {
                 onToggle={togglePassordVisibility}
               />
             </View>
+            <TouchableOpacity>
+              <Text style={tw`text-[#FF9400]`}> Forgot Password?</Text>
+            </TouchableOpacity>
           </View>
 
-          <View style={tw`mt-[208px] mx-3`}>
+          <View style={tw`mt-32 mx-3`}>
             <Button fullWidth={true} onPress={handleLogin}>
               Login With Biometrics
             </Button>

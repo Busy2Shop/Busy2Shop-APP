@@ -35,9 +35,9 @@ const AllOrders: React.FC<AllOrdersProps> = ({ setPage }) => {
           Available Orders Near You
         </Text>
 
-        <ScrollView style={tw`min-h-[700px] flex-1`}>
+        <ScrollView style={tw` flex-1 `}>
           <View
-            style={tw`flex flex-col gap-6 text-[#5D5D5D] font-sm font-normal `}
+            style={tw`flex flex-col gap-6 text-[#5D5D5D] font-sm font-normal mb-28`}
           >
             {AvailableOrder.map((order) => (
               <View

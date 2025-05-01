@@ -3,6 +3,7 @@ import { View } from "react-native";
 import OrderDetails from "./OrderDetails";
 import ShoppingDetails from "./ShoppingDetails";
 import DeliveryDetails from "./DeliveryDetails";
+import OrderNavigation from "./OrderNavigation";
 
 interface SingleOrderProps {
   setPage: (page: number) => void;
@@ -19,7 +20,7 @@ const SingleOrder: React.FC<SingleOrderProps> = ({ setPage }) => {
           setSingleOrderPage={setSingleOrderPage}
         />
       ) : singleOrderPage === 1 ? (
-        <ShoppingDetails setSingleOrderPage={setSingleOrderPage} />
+        <OrderNavigation setSingleOrderPage={setSingleOrderPage} />
       ) : (
         <DeliveryDetails setSingleOrderPage={setSingleOrderPage} />
       )}

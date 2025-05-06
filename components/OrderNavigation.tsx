@@ -6,25 +6,24 @@ import tw from "twrnc";
 
 import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
 import MessagesIcon from "@/assets/icons/messages.svg";
-import ShoppingCartIcon from "@/assets/icons/shopping-cart.svg";
+import NavigationIcon from "@/assets/icons/direct-up-white.svg";
+
 interface SingleOrderProps {
-  setOrderPage: (page: number) => void;
   setSingleOrderPage: (page: number) => void;
 }
 
-const OrderDetails: React.FC<SingleOrderProps> = ({
-  setOrderPage,
+const OrderNavigation: React.FC<SingleOrderProps> = ({
   setSingleOrderPage,
 }) => {
   const singleOrder = AvailableOrder[0];
   const [activeButton, setActiveButton] = useState<string>("Review Order");
 
   const handlePage = () => {
-    setOrderPage(0);
+    setSingleOrderPage(0);
   };
 
   const handleSingleOrderPage = () => {
-    setSingleOrderPage(1);
+    setSingleOrderPage(2);
   };
 
   return (
@@ -59,15 +58,24 @@ const OrderDetails: React.FC<SingleOrderProps> = ({
               </Text>
             </View>
             <View
-              style={tw`flex flex-row gap-1 items-center justify-center py-[2px] px-1 bg-[#5D5D5D] w-[98px] h-6 text-[#F7F7F7] rounded-lg`}
+              style={tw`flex flex-row gap-1 items-center justify-center py-[2px] px-1 bg-[#0069CC] w-[102px] h-6 text-[#F7F7F7] rounded-lg`}
             >
               <View style={tw`h-[14px] w-[14px]`}>
-                <ShoppingCartIcon />
+                <NavigationIcon />
               </View>
               <Text style={tw` text-[#F7F7F7] text-xs font-medium`}>
-                Reviewing
+                Navigating
               </Text>
             </View>
+
+            <TouchableOpacity
+              style={tw`flex items-center justify-center h-10 w-[150px] rounded-lg text-xs bg-white border-[0.5px] border-[#5D5D5D] rounded-lg`}
+              onPress={() => setActiveButton("Review Order")}
+            >
+              <Text style={tw` text-base font-medium text-[#434343] `}>
+                Mark as Arrived
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -194,10 +202,10 @@ Thanks.`}</Text>
       </View>
 
       <Button fullWidth fontWeight="medium" onPress={handleSingleOrderPage}>
-        Navigate to Store
+        Mark as Arrived
       </Button>
     </View>
   );
 };
 
-export default OrderDetails;
+export default OrderNavigation;

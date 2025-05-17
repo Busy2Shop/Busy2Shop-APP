@@ -6,28 +6,26 @@ import tw from "twrnc";
 
 import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
 import MessagesIcon from "@/assets/icons/messages.svg";
-import NavigationIcon from "@/assets/icons/direct-up-white.svg";
+import ArrivedIcon from "@/assets/icons/arrived.svg";
 import OrderSummary from "./OrderReview";
 import DetailsNavbar from "./OrderDetailsNav";
-import ShoppingNavigation from "./ShoppingNavigation";
+import ArrivedStore from "./ArrivedAtShop";
 import NavigationCheckout from "./NavigationCheckout";
 
 interface SingleOrderProps {
   setSingleOrderPage: (page: number) => void;
 }
 
-const OrderNavigation: React.FC<SingleOrderProps> = ({
-  setSingleOrderPage,
-}) => {
+const OrderArrived: React.FC<SingleOrderProps> = ({ setSingleOrderPage }) => {
   const singleOrder = AvailableOrder[0];
   const [activeButton, setActiveButton] = useState<string>("Review Order");
 
   const handlePage = () => {
-    setSingleOrderPage(0);
+    setSingleOrderPage(1);
   };
 
   const handleSingleOrderPage = () => {
-    setSingleOrderPage(2);
+    setSingleOrderPage(3);
   };
 
   return (
@@ -41,7 +39,7 @@ const OrderNavigation: React.FC<SingleOrderProps> = ({
         contentContainerStyle={tw`pb-8 gap-4`}
       >
         <View
-          style={tw`flex bg-white flex-col p-3 gap-[10px] border-[0.5px] rounded-lg border-[#5D5D5D]`}
+          style={tw`flex flex-col p-3 gap-[10px] border-[0.5px] rounded-lg border-[#5D5D5D]`}
         >
           <View style={tw`flex flex-row justify-between items-center`}>
             <Text style={tw`text-xl font-semibold `}>
@@ -66,13 +64,13 @@ const OrderNavigation: React.FC<SingleOrderProps> = ({
               </Text>
             </View>
             <View
-              style={tw`flex flex-row gap-1 items-center justify-center py-[2px] px-1 bg-[#0069CC] w-[102px] h-6 text-[#F7F7F7] rounded-lg`}
+              style={tw`flex flex-row gap-1 items-center justify-between py-[2px] px-2 bg-[#FF9400] h-6 text-[#F7F7F7] rounded-lg`}
             >
-              <View style={tw`h-[14px] w-[14px]`}>
-                <NavigationIcon />
+              <View style={tw`h-[14px] w-[14px] mr-1`}>
+                <ArrivedIcon />
               </View>
               <Text style={tw` text-[#F7F7F7] text-xs font-medium`}>
-                Navigating
+                Arrived
               </Text>
             </View>
 
@@ -81,7 +79,7 @@ const OrderNavigation: React.FC<SingleOrderProps> = ({
               onPress={() => setActiveButton("Review Order")}
             >
               <Text style={tw` text-base font-medium text-[#434343] `}>
-                Mark as Arrived
+                Start Shopping
               </Text>
             </TouchableOpacity>
           </View>
@@ -91,17 +89,18 @@ const OrderNavigation: React.FC<SingleOrderProps> = ({
           activeButton={activeButton}
           setActiveButton={setActiveButton}
         />
+
         {activeButton === "Review Order" && (
           <OrderSummary singleOrder={singleOrder} />
         )}
 
-        {activeButton === "Shopping" && <ShoppingNavigation />}
+        {activeButton === "Shopping" && <ArrivedStore />}
 
         {activeButton === "Checkout" && <NavigationCheckout />}
 
         <View style={tw`mt-4 mb-14`}>
           <Button fullWidth fontWeight="medium" onPress={handleSingleOrderPage}>
-            Mark as Arrived
+            Start Shopping
           </Button>
         </View>
       </ScrollView>
@@ -109,4 +108,4 @@ const OrderNavigation: React.FC<SingleOrderProps> = ({
   );
 };
 
-export default OrderNavigation;
+export default OrderArrived;

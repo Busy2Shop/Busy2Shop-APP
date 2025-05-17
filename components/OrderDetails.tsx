@@ -1,41 +1,25 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import Button from "@/components/Button";
+import { AvailableOrder } from "@/constants/constants";
 import tw from "twrnc";
 
 import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
 import MessagesIcon from "@/assets/icons/messages.svg";
 import ShoppingCartIcon from "@/assets/icons/shopping-cart.svg";
+import OrderSummary from "./OrderReview";
+import DetailsNavbar from "./OrderDetailsNav";
 
 interface SingleOrderProps {
   setOrderPage: (page: number) => void;
   setSingleOrderPage: (page: number) => void;
 }
 
-// Mock data to replace the imported AvailableOrder
-const sampleOrder = {
-  orderNo: "1234",
-  deliveryLocation: "Lekki Phase 1, Lagos",
-  phoneNumber: "+234 123 456 7890",
-  superMarket: "Shoprite Market",
-  additionalNotes: "Please make sure the products are fresh.",
-  shoppingList: [
-    { name: "Milk", quantity: 2, unit: "Carton" },
-    { name: "Bread", quantity: 1, unit: "Loaf" },
-    { name: "Eggs", quantity: 12, unit: "Pcs" },
-    { name: "Rice", quantity: 5, unit: "kg" },
-    { name: "Beans", quantity: 2, unit: "kg" },
-    { name: "Pasta", quantity: 3, unit: "pack" },
-    { name: "Tomatoes", quantity: 10, unit: "pcs" },
-    { name: "Onions", quantity: 5, unit: "pcs" },
-  ],
-};
-
 const OrderDetails: React.FC<SingleOrderProps> = ({
   setOrderPage,
   setSingleOrderPage,
 }) => {
-  const singleOrder = sampleOrder; // Use the mock data instead of importing
+  const singleOrder = AvailableOrder[0];
   const [activeButton, setActiveButton] = useState<string>("Review Order");
 
   const handlePage = () => {
@@ -95,130 +79,12 @@ const OrderDetails: React.FC<SingleOrderProps> = ({
           </View>
         </View>
 
-        <View
-          style={tw`flex flex-row items-center justify-between bg-[#EBF9F6] border-[0.5px] border-[#00A082] rounded-lg h-10 p-1`}
-        >
-          <TouchableOpacity
-            style={tw`flex items-center justify-center h-8 w-[100px] rounded-lg text-xs ${
-              activeButton === "Review Order" ? "bg-[#00A082]" : "bg-[#EBF9F6]"
-            }`}
-            onPress={() => setActiveButton("Review Order")}
-          >
-            <Text
-              style={tw` ${
-                activeButton === "Review Order"
-                  ? "text-[#F7F7F7]"
-                  : "text-[#5D5D5D]"
-              }`}
-            >
-              Review Order
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={tw`flex items-center justify-center h-8 w-[100px] rounded-lg text-xs ${
-              activeButton === "Shopping" ? "bg-[#00A082]" : "bg-[#EBF9F6]"
-            } `}
-            onPress={() => setActiveButton("Shopping")}
-          >
-            <Text
-              style={tw` ${
-                activeButton === "Shopping"
-                  ? "text-[#F7F7F7]"
-                  : "text-[#5D5D5D]"
-              }`}
-            >
-              Shopping
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={tw`flex items-center justify-center h-8 w-[100px] rounded-lg text-xs ${
-              activeButton === "Checkout" ? "bg-[#00A082]" : "bg-[#EBF9F6]"
-            }`}
-            onPress={() => setActiveButton("Checkout")}
-          >
-            <Text
-              style={tw` ${
-                activeButton === "Checkout"
-                  ? "text-[#F7F7F7]"
-                  : "text-[#5D5D5D]"
-              }`}
-            >
-              Checkout
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <DetailsNavbar
+          activeButton={activeButton}
+          setActiveButton={setActiveButton}
+        />
 
-        <View
-          style={tw`flex flex-col p-3 gap-4 border-[0.5px] rounded-lg border-[#5D5D5D]`}
-        >
-          <View style={tw`flex flex-col`}>
-            <Text style={tw`text-xl font-semibold `}>Order Review</Text>
-            <Text style={tw`text-xs font-medium text-[#5D5D5D]`}>
-              Review the complete Shopping list and customer instructions before
-              starting.
-            </Text>
-          </View>
-          <View style={tw`flex flex-col`}>
-            <Text style={tw`text-base text-[#434343] font-medium`}>
-              Customer Instructions
-            </Text>
-            <Text style={tw`text-xs text-[#5D5D5D] font-medium`}>{`Hi! Good day,
-pls make sure the milk is not expired and if you can find them at that store, you check Globus Supermarket. 
-Thanks.`}</Text>
-          </View>
-
-          <View style={tw`flex flex-col gap-3`}>
-            <Text style={tw`text-base text-[#434343] font-medium`}>
-              Shopping List (8 Items)
-            </Text>
-            <View
-              style={tw`flex flex-col p-3 gap-4 bg-[#5D5D5D11] border-[0.5px] rounded-lg border-[#5D5D5D]`}
-            >
-              <Text style={tw`flex flex-col gap-1`}>
-                {singleOrder.shoppingList.map((item, index) => (
-                  <View style={tw`flex flex-col gap-[0.5px]`} key={index}>
-                    <Text style={tw`text-base font-medium text-[#434343]`}>
-                      {item.name}
-                    </Text>
-                    <Text style={tw`text-normal font-medium text-[#5D5D5D]`}>
-                      {item.quantity} x {item.unit}
-                    </Text>
-                    <Text
-                      style={tw`flex flex-row gap-1 text-normal font-medium text-[#5D5D5D]`}
-                    >
-                      <Text style={tw`text-normal font-medium text-[#5D5D5D]`}>
-                        Note:{" "}
-                      </Text>
-                      <Text style={tw`text-normal font-medium text-[#5D5D5D]`}>
-                        {singleOrder.additionalNotes}
-                      </Text>
-                    </Text>
-
-                    <View style={tw`flex-row items-center my-2`}>
-                      <View style={tw`flex-1 h-[0.5px] bg-[#777777] `} />
-                    </View>
-                  </View>
-                ))}
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        <View
-          style={tw`flex flex-col p-3 gap-1 border-[0.5px] rounded-lg border-[#5D5D5D]`}
-        >
-          <Text style={tw`text-base font-medium text-[#434343]`}>
-            Store Information
-          </Text>
-          <Text style={tw`flex flex-col`}>
-            <Text style={tw`text-xs font-medium text-[#5D5D5D]`}>
-              {singleOrder.superMarket}
-            </Text>
-            <Text style={tw`text-xs font-medium text-[#5D5D5D]`}>
-              {singleOrder.deliveryLocation}
-            </Text>
-          </Text>
-        </View>
+        <OrderSummary singleOrder={singleOrder} />
 
         <View style={tw`mt-4 mb-14`}>
           <Button fullWidth fontWeight="medium" onPress={handleSingleOrderPage}>

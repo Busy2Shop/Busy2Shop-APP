@@ -95,6 +95,22 @@ export default function RootLayout() {
           name="home/dashboard/refer"
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="home/dashboard/withdrawEarnings"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="home/dashboard/editProfile"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="home/dashboard/accountDetails"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="home/dashboard/addAccount"
+          options={{ headerShown: false }}
+        />
       </Stack>
     </Provider>
   );

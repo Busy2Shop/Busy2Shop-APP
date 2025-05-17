@@ -3,6 +3,7 @@ import React from "react";
 import { useRouter } from "expo-router";
 import tw from "twrnc";
 import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
+import AwardIcon from "@/assets/icons/award.svg";
 import BottomNavBar from "@/components/BottomNavbar";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -82,6 +83,17 @@ const Earnings = () => {
           </View>
         </LinearGradient>
 
+        <View>
+          <TouchableOpacity
+            style={tw`mx-4 my-2 p-4 border border-gray-100 bg-[#00A082] rounded-lg`}
+            onPress={() => router.push("/home/dashboard/withdrawEarnings")}
+          >
+            <Text style={tw`text-center text-[#FBFBFC] text-[16px] font-600`}>
+              Withdraw Earnings
+            </Text>
+          </TouchableOpacity>
+        </View>
+
         {/* Daily Bonuses Section */}
         <View style={tw`mx-4 my-3 p-4 border border-gray-200 rounded-lg`}>
           <Text style={tw`text-lg font-semibold mb-2`}>Daily Bonuses</Text>
@@ -94,7 +106,7 @@ const Earnings = () => {
             <View
               style={tw`w-8 h-8 rounded-full bg-gray-100 items-center justify-center mr-3`}
             >
-              <Text style={tw`text-gray-500`}>₦</Text>
+              <AwardIcon width={24} height={24} />
             </View>
             <View style={tw`flex-1`}>
               <Text style={tw`font-semibold`}>N500 bonus</Text>
@@ -109,7 +121,7 @@ const Earnings = () => {
             <View
               style={tw`w-8 h-8 rounded-full bg-gray-100 items-center justify-center mr-3`}
             >
-              <Text style={tw`text-gray-500`}>₦</Text>
+              <AwardIcon width={24} height={24} />
             </View>
             <View style={tw`flex-1`}>
               <Text style={tw`font-semibold`}>Additional N500 bonus</Text>

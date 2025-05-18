@@ -4,7 +4,10 @@ import OrderDetails from "./OrderDetails";
 import ShoppingDetails from "./ShoppingDetails";
 import DeliveryDetails from "./DeliveryDetails";
 import OrderNavigation from "./OrderNavigation";
+import OrderArrived from "./OrderArrived";
 import tw from "twrnc";
+import StartShopping from "./StartShopping";
+import CheckoutPage from "./Checkout";
 
 interface SingleOrderProps {
   setPage: (page: number) => void;
@@ -22,6 +25,12 @@ const SingleOrder: React.FC<SingleOrderProps> = ({ setPage }) => {
         />
       ) : singleOrderPage === 1 ? (
         <OrderNavigation setSingleOrderPage={setSingleOrderPage} />
+      ) : singleOrderPage === 2 ? (
+        <OrderArrived setSingleOrderPage={setSingleOrderPage} />
+      ) : singleOrderPage === 3 ? (
+        <StartShopping setSingleOrderPage={setSingleOrderPage} />
+      ) : singleOrderPage === 4 ? (
+        <CheckoutPage setSingleOrderPage={setSingleOrderPage} />
       ) : (
         <DeliveryDetails setSingleOrderPage={setSingleOrderPage} />
       )}

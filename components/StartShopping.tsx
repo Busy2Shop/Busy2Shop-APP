@@ -9,6 +9,8 @@ import MessagesIcon from "@/assets/icons/messages.svg";
 import ShoppingIcon from "@/assets/icons/shopping-bag.svg";
 import OrderSummary from "./OrderReview";
 import DetailsNavbar from "./OrderDetailsNav";
+import ShoppingProgress from "./ShoppingProgress";
+import NavigationCheckout from "./NavigationCheckout";
 
 interface SingleOrderProps {
   setSingleOrderPage: (page: number) => void;
@@ -88,7 +90,15 @@ const StartShopping: React.FC<SingleOrderProps> = ({ setSingleOrderPage }) => {
           setActiveButton={setActiveButton}
         />
 
-        <OrderSummary singleOrder={singleOrder} />
+        {activeButton === "Review Order" && (
+          <OrderSummary singleOrder={singleOrder} />
+        )}
+
+        {activeButton === "Shopping" && (
+          <ShoppingProgress singleOrder={singleOrder} />
+        )}
+
+        {activeButton === "Checkout" && <NavigationCheckout />}
 
         <View style={tw`mt-4 mb-14`}>
           <Button fullWidth fontWeight="medium" onPress={handleSingleOrderPage}>

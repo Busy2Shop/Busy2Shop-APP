@@ -26,8 +26,9 @@ const OrderSummary: React.FC<SingleOrderProps> = ({ singleOrder }) => {
           </Text>
           <Text style={tw`text-xs text-[#5D5D5D] font-medium text-start`}>
             {`Hi! Good day,
-            pls make sure the milk is not expired and if you can find 
-            them at that store, you check Globus Supermarket. Thanks.`}
+            pls make sure the milk is not expired and if you can find them at that store, you check Globus Supermarket.
+             
+            Thanks.`}
           </Text>
         </View>
 

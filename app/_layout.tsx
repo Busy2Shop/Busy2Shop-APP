@@ -56,6 +56,10 @@ export default function RootLayout() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="(auth)/agent/documents"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="home/dashboard/page"
           options={{ headerShown: false }}
         />
@@ -93,6 +97,22 @@ export default function RootLayout() {
         />
         <Stack.Screen
           name="home/dashboard/refer"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="home/dashboard/withdrawEarnings"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="home/dashboard/editProfile"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="home/dashboard/accountDetails"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="home/dashboard/addAccount"
           options={{ headerShown: false }}
         />
       </Stack>

@@ -6,8 +6,10 @@ import {
   TouchableOpacity,
   ScrollView,
   Switch,
+  Animated,
+  Easing,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useRouter } from "expo-router";
 import tw from "twrnc";
 import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
@@ -17,15 +19,76 @@ import { Feather } from "@expo/vector-icons";
 const Refer = () => {
   const router = useRouter();
   const [showBonusTiers, setShowBonusTiers] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
+  const toastAnimation = useRef(new Animated.Value(0)).current;
   const referralLink = "https://example.com/refuser123";
+
+  const showToast = () => {
+    setToastVisible(true);
+    Animated.sequence([
+      Animated.timing(toastAnimation, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+        easing: Easing.out(Easing.ease),
+      }),
+      Animated.delay(2000),
+      Animated.timing(toastAnimation, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+        easing: Easing.in(Easing.ease),
+      }),
+    ]).start(() => {
+      setToastVisible(false);
+    });
+  };
 
   const copyToClipboard = async () => {
     await Clipboard.setStringAsync(referralLink);
-    // You could add toast notification here
+    showToast();
   };
+
+  const translateY = toastAnimation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-100, 0],
+  });
+
+  const opacity = toastAnimation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
+  });
 
   return (
     <View style={tw`flex-1 bg-white pt-10`}>
+      {/* Toast Message */}
+      {toastVisible && (
+        <Animated.View
+          style={[
+            tw`absolute top-0 left-0 right-0 z-50 mx-4 mt-16 p-3 bg-[#00A082] rounded-lg shadow-lg flex-row items-center justify-between`,
+            {
+              transform: [{ translateY }],
+              opacity,
+              zIndex: 9999,
+            },
+          ]}
+        >
+          <View style={tw`flex-row items-center`}>
+            <View
+              style={tw`h-6 w-6 bg-white rounded-full items-center justify-center mr-2`}
+            >
+              <Feather name="check" size={16} color="#00A082" />
+            </View>
+            <Text style={tw`text-white font-medium`}>
+              Link copied to clipboard!
+            </Text>
+          </View>
+          <TouchableOpacity onPress={() => setToastVisible(false)}>
+            <Feather name="x" size={20} color="white" />
+          </TouchableOpacity>
+        </Animated.View>
+      )}
+
       {/* Header */}
       <View style={tw`flex-row items-center p-4`}>
         <TouchableOpacity style={tw`p-2`} onPress={() => router.back()}>
@@ -57,7 +120,7 @@ const Refer = () => {
             style={tw`flex-row border border-gray-300 rounded-lg overflow-hidden `}
           >
             <TextInput
-              style={tw`flex-1 py-1 text-gray-600 bg-white`}
+              style={tw`flex-1 p-2 text-gray-600 text-[13px] font-400 bg-white`}
               value={referralLink}
               editable={false}
             />

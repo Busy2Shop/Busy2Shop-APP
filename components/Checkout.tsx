@@ -6,36 +6,41 @@ import tw from "twrnc";
 
 import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
 import MessagesIcon from "@/assets/icons/messages.svg";
-import ShoppingCartIcon from "@/assets/icons/shopping-cart.svg";
+import CheckoutIcon from "@/assets/icons/checkout-card.svg";
 import OrderSummary from "./OrderReview";
 import DetailsNavbar from "./OrderDetailsNav";
+import CompleteCheckout from "./CompleteCheckout";
+import CheckCircle from "@/assets/icons/check-circle.svg";
 
 interface SingleOrderProps {
-  setOrderPage: (page: number) => void;
   setSingleOrderPage: (page: number) => void;
 }
 
-const OrderDetails: React.FC<SingleOrderProps> = ({
-  setOrderPage,
-  setSingleOrderPage,
-}) => {
+const CheckoutPage: React.FC<SingleOrderProps> = ({ setSingleOrderPage }) => {
   const singleOrder = AvailableOrder[0];
   const [activeButton, setActiveButton] = useState<string>("Review Order");
+  const [buttonTitle, setButtonTitle] = useState<string>("Complete Order");
+  const [flag, setFlag] = useState<string>("Checkout");
 
   const handlePage = () => {
-    setOrderPage(0);
+    if (flag === "Completed") {
+      setFlag("Checkout");
+      setButtonTitle("Complete Order");
+    } else {
+      setSingleOrderPage(3);
+    }
   };
 
-  const handleSingleOrderPage = () => {
-    setSingleOrderPage(1);
+  const handleClick = () => {
+    setButtonTitle("Proceed to Disptach");
+    setFlag("Completed");
   };
 
   return (
-    <View style={tw`flex-1 bg-[#F7F7F7] max-w-[375px]`}>
-      <TouchableOpacity style={tw`h-6 w-6 mb-2`} onPress={handlePage}>
+    <View style={tw`flex-1 flex-col gap-4 bg-[#F7F7F7] max-w-[375px]`}>
+      <TouchableOpacity style={tw`h-6 w-6 `} onPress={handlePage}>
         <LeftArrowIcon />
       </TouchableOpacity>
-
       <ScrollView
         style={tw`flex-1`}
         showsVerticalScrollIndicator={true}
@@ -67,13 +72,22 @@ const OrderDetails: React.FC<SingleOrderProps> = ({
               </Text>
             </View>
             <View
-              style={tw`flex flex-row gap-1 items-center justify-center py-[2px] px-1 bg-[#5D5D5D] w-[98px] h-6 text-[#F7F7F7] rounded-lg`}
+              style={tw`flex flex-row gap-1 items-center px-4 justify-between py-[2px] px-1 ${
+                flag === "Checkout" ? "bg-[#F97216]" : "bg-[#1FC16B]"
+              } h-6 text-[#F7F7F7] rounded-lg`}
             >
-              <View style={tw`h-[14px] w-[14px]`}>
-                <ShoppingCartIcon />
-              </View>
+              {flag === "Checkout" ? (
+                <View style={tw`h-[14px] w-[14px] text-white`}>
+                  <CheckoutIcon />
+                </View>
+              ) : (
+                <View style={tw`h-[14px] w-[14px] text-white`}>
+                  <CheckCircle />
+                </View>
+              )}
+
               <Text style={tw` text-[#F7F7F7] text-xs font-medium`}>
-                Reviewing
+                {flag}
               </Text>
             </View>
           </View>
@@ -84,16 +98,24 @@ const OrderDetails: React.FC<SingleOrderProps> = ({
           setActiveButton={setActiveButton}
         />
 
-        <OrderSummary singleOrder={singleOrder} />
+        {activeButton === "Review Order" && (
+          <OrderSummary singleOrder={singleOrder} />
+        )}
 
-        <View style={tw`mt-4 mb-14`}>
-          <Button fullWidth fontWeight="medium" onPress={handleSingleOrderPage}>
-            Navigate to Store
-          </Button>
-        </View>
+        {activeButton === "Checkout" && (
+          <CompleteCheckout singleOrder={singleOrder} />
+        )}
+
+        {activeButton !== "Shopping" && (
+          <View style={tw`mt-4 mb-14`}>
+            <Button fullWidth fontWeight="medium" onPress={handleClick}>
+              {buttonTitle}
+            </Button>
+          </View>
+        )}
       </ScrollView>
     </View>
   );
 };
 
-export default OrderDetails;
+export default CheckoutPage;

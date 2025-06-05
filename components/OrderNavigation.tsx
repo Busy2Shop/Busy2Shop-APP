@@ -6,43 +6,42 @@ import tw from "twrnc";
 
 import LeftArrowIcon from "@/assets/icons/arrow-left.svg";
 import MessagesIcon from "@/assets/icons/messages.svg";
-import ShoppingCartIcon from "@/assets/icons/shopping-cart.svg";
+import NavigationIcon from "@/assets/icons/direct-up-white.svg";
 import OrderSummary from "./OrderReview";
 import DetailsNavbar from "./OrderDetailsNav";
+import ShoppingNavigation from "./ShoppingNavigation";
+import NavigationCheckout from "./NavigationCheckout";
 
 interface SingleOrderProps {
-  setOrderPage: (page: number) => void;
   setSingleOrderPage: (page: number) => void;
 }
 
-const OrderDetails: React.FC<SingleOrderProps> = ({
-  setOrderPage,
+const OrderNavigation: React.FC<SingleOrderProps> = ({
   setSingleOrderPage,
 }) => {
   const singleOrder = AvailableOrder[0];
   const [activeButton, setActiveButton] = useState<string>("Review Order");
 
   const handlePage = () => {
-    setOrderPage(0);
+    setSingleOrderPage(0);
   };
 
   const handleSingleOrderPage = () => {
-    setSingleOrderPage(1);
+    setSingleOrderPage(2);
   };
 
   return (
-    <View style={tw`flex-1 bg-[#F7F7F7] max-w-[375px]`}>
-      <TouchableOpacity style={tw`h-6 w-6 mb-2`} onPress={handlePage}>
+    <View style={tw`flex-1 flex-col gap-4 bg-[#F7F7F7] max-w-[375px]`}>
+      <TouchableOpacity style={tw`h-6 w-6 `} onPress={handlePage}>
         <LeftArrowIcon />
       </TouchableOpacity>
-
       <ScrollView
         style={tw`flex-1`}
         showsVerticalScrollIndicator={true}
         contentContainerStyle={tw`pb-8 gap-4`}
       >
         <View
-          style={tw`flex flex-col p-3 gap-[10px] border-[0.5px] rounded-lg border-[#5D5D5D]`}
+          style={tw`flex bg-white flex-col p-3 gap-[10px] border-[0.5px] rounded-lg border-[#5D5D5D]`}
         >
           <View style={tw`flex flex-row justify-between items-center`}>
             <Text style={tw`text-xl font-semibold `}>
@@ -67,15 +66,24 @@ const OrderDetails: React.FC<SingleOrderProps> = ({
               </Text>
             </View>
             <View
-              style={tw`flex flex-row gap-1 items-center justify-center py-[2px] px-1 bg-[#5D5D5D] w-[98px] h-6 text-[#F7F7F7] rounded-lg`}
+              style={tw`flex flex-row gap-1 items-center justify-center py-[2px] px-1 bg-[#0069CC] w-[102px] h-6 text-[#F7F7F7] rounded-lg`}
             >
               <View style={tw`h-[14px] w-[14px]`}>
-                <ShoppingCartIcon />
+                <NavigationIcon />
               </View>
               <Text style={tw` text-[#F7F7F7] text-xs font-medium`}>
-                Reviewing
+                Navigating
               </Text>
             </View>
+
+            <TouchableOpacity
+              style={tw`flex items-center justify-center h-10 w-[150px] rounded-lg text-xs bg-white border-[0.5px] border-[#5D5D5D] rounded-lg`}
+              onPress={() => setActiveButton("Review Order")}
+            >
+              <Text style={tw` text-base font-medium text-[#434343] `}>
+                Mark as Arrived
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -83,12 +91,17 @@ const OrderDetails: React.FC<SingleOrderProps> = ({
           activeButton={activeButton}
           setActiveButton={setActiveButton}
         />
+        {activeButton === "Review Order" && (
+          <OrderSummary singleOrder={singleOrder} />
+        )}
 
-        <OrderSummary singleOrder={singleOrder} />
+        {activeButton === "Shopping" && <ShoppingNavigation />}
+
+        {activeButton === "Checkout" && <NavigationCheckout />}
 
         <View style={tw`mt-4 mb-14`}>
           <Button fullWidth fontWeight="medium" onPress={handleSingleOrderPage}>
-            Navigate to Store
+            Mark as Arrived
           </Button>
         </View>
       </ScrollView>
@@ -96,4 +109,4 @@ const OrderDetails: React.FC<SingleOrderProps> = ({
   );
 };
 
-export default OrderDetails;
+export default OrderNavigation;

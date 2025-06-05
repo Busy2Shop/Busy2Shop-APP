@@ -56,6 +56,10 @@ export default function RootLayout() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="(auth)/agent/documents"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="home/dashboard/page"
           options={{ headerShown: false }}
         />

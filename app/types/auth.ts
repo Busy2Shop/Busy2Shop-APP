@@ -15,14 +15,33 @@ export interface LoginCredentials {
 }
 
 export interface RegisterData {
-  name: string;
   email: string;
   password: string;
-  phone: string;
   role?: "user" | "agent";
 }
 
+// API Response wrapper structure
+export interface ApiResponse<T> {
+  status: "success" | "error";
+  message: string;
+  data: T;
+}
+
+// Actual data structures
+export interface AuthResponseData {
+  user: User;
+  accessToken: string;
+  refreshToken?: string;
+}
+
+export interface OTPVerificationResponseData {
+  email: string;
+  accessToken: string;
+}
+
+// For Redux state
 export interface AuthResponse {
   user: User;
-  token: string;
+  accessToken: string;
+  refreshToken?: string;
 }
